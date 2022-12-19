@@ -25,4 +25,29 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function coordinatorHome()
+    {
+        return view('coordinator_home');
+    }
+
+    public function commiteeHome()
+    {
+        return view('commitee_home');
+    }
+
+    public function deanHome()
+    {
+        return view('dean_home');
+    }
+
+    public function lecturerHome()
+    {
+        return view('lecturer_home');
+    }
+
+    public function hodHome()
+    {
+        return view('hod_home');
+    }
 }
