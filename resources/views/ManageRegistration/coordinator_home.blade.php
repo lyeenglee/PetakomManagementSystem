@@ -16,7 +16,10 @@
 
                     {{ __('You are logged in!') }}
 
-                    
+                    <br/><br/>
+                    <a href="{{ url('/lists') }}" class="btn btn-success btn-sm" title="user list">
+                            User List
+                    </a>
                 </div>
             </div>
         </div>

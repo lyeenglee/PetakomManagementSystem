@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class HomeController extends Controller
+use App\Models\User;
+class UserController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -49,5 +49,31 @@ class HomeController extends Controller
     public function hodHome()
     {
         return view('ManageRegistration.hod_home');
+    }
+
+    public function display()
+    {
+        $user = User::all();
+        return view('ManageRegistration.userList')->with('user', $user);
+    }
+
+    public function assign($id)
+    {
+        $user = User::find($id);
+        return view('ManageRegistration.editRole')->with('user', $user);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+        $input = $request->all();
+        $user->update($input);
+        return redirect('/lists')->with('flash_message', 'Updated!');
+    }
+
+    public function destroy($id)
+    {
+        User::destroy($id);
+        return redirect('/lists')->with('success', 'deleted!'); 
     }
 }
