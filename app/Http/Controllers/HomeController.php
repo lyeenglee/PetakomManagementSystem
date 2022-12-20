@@ -23,31 +23,31 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('ManageRegistration.home');
     }
 
     public function coordinatorHome()
     {
-        return view('coordinator_home');
+        return view('ManageRegistration.coordinator_home');
     }
 
     public function commiteeHome()
     {
-        return view('commitee_home');
+        return view('ManageRegistration.commitee_home');
     }
 
     public function deanHome()
     {
-        return view('dean_home');
+        return view('ManageRegistration.dean_home');
     }
 
     public function lecturerHome()
     {
-        return view('lecturer_home');
+        return view('ManageRegistration.lecturer_home');
     }
 
     public function hodHome()
     {
-        return view('hod_home');
+        return view('ManageRegistration.hod_home');
     }
 }
