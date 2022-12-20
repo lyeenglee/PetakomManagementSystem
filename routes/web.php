@@ -37,4 +37,4 @@ Route::get('/dean/home', [App\Http\Controllers\UserController::class, 'deanHome'
 Route::get('/lists',[App\http\controllers\UserController::class,'display'])->name('users.display');
 Route::get('/lists/{id}/editRole',[App\http\controllers\UserController::class,'assign'])->name('users.assign');
 Route::patch("/lists/{id}/",'App\http\Controllers\UserController@update');
-Route::delete("/lists/{id}",'App\http\Controllers\UserController@delete');
+Route::delete("/lists/{id}",'App\http\Controllers\UserController@destroy');
