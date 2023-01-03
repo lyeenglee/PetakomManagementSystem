@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('option')->default("Student");
             $table->rememberToken();
             $table->timestamps();
+
+
         });
     }
 
@@ -33,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('students');
     }
 };
