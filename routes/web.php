@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ActivityController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -38,3 +39,17 @@ Route::get('/lists',[App\http\controllers\UserController::class,'display'])->nam
 Route::get('/lists/{id}/editRole',[App\http\controllers\UserController::class,'assign'])->name('users.assign');
 Route::patch("/lists/{id}/",'App\http\Controllers\UserController@update');
 Route::delete("/lists/{id}",'App\http\Controllers\UserController@destroy');
+
+//Manage Activity
+Route::resource("/activity", ActivityController::class);
+Route::get('/coordinator/activity/menu', [App\Http\Controllers\ActivityController::class, 'coordinatorMenu'])->name('coordinator_activity_menu');
+Route::get('/dean/activity/menu', [App\Http\Controllers\ActivityController::class, 'deanMenu'])->name('dean_activity_menu');
+Route::get('/HOD/activity/menu', [App\Http\Controllers\ActivityController::class, 'HODMenu'])->name('HOD_activity_menu');
+Route::get('/lecturer/activity/menu', [App\Http\Controllers\ActivityController::class, 'lecturerMenu'])->name('lecturer_activity_menu');
+Route::get('/student/activity/menu', [App\Http\Controllers\ActivityController::class, 'studentMenu'])->name('student_activity_menu');
+
+Route::get('/viewActivity/{id}/coordinatorView',[App\http\controllers\ActivityController::class,'coordinatorView'])->name('activities.coordinatorView');
+Route::get('/viewActivity/{id}/deanView',[App\http\controllers\ActivityController::class,'deanView'])->name('activities.deanView');
+Route::get('/viewActivity/{id}/HODView',[App\http\controllers\ActivityController::class,'HODView'])->name('activities.HODView');
+Route::get('/viewActivity/{id}/lecturerView',[App\http\controllers\ActivityController::class,'lecturerView'])->name('activities.lecturerView');
+Route::get('/viewActivity/{id}/studentView',[App\http\controllers\ActivityController::class,'studentView'])->name('activities.studentView');

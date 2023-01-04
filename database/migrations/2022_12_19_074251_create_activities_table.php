@@ -15,7 +15,18 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('activityName')->nullable();
+            $table->longText('activityDescription')->nullable();
+            $table->string('activityStatus')->nullable();
+            $table->date('startDate')->nullable();
+            $table->date('endDate')->nullable();
+            $table->time('startTime')->nullable();
+            $table->time('endTime')->nullable();
+            $table->string('activityVenue')->nullable();
+            $table->float('grantAmount');
+            $table->string('proposalUrl');
+            $table->string('posterUrl')->nullable();
+
         });
     }
 
