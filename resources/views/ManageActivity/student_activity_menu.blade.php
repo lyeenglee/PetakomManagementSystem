@@ -57,7 +57,7 @@
                                 <td>{{ $item->startDate }}</td>
                                 <td>{{ $item->endDate }}</td>
                                 <td >   
-                                    <a href="{{ url('/viewActivity/' . $item->id. '/studentView')}}" title="View Activity"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>                      
+                                    <a href="{{ url('/viewActivity/' . $item->activityID. '/studentView')}}" title="View Activity"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>                      
                                 </td>
                             </tr>
                             @endforeach

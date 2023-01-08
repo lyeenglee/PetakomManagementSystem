@@ -8,7 +8,7 @@
                 <div class="card-header">{{_('Coordinator View Activity Details') }}</div>
                 <div class="card-body">
                     <form>
-                        <input  type="hidden" name="id" id="id" value="{{$activities->id}}" id="id" />
+                        <input  type="hidden" name="activityID" id="activityID" value="{{$activities->id}}"/>
                         <div class="row mb-3">
                             <label for="activityName" class="col-md-4 col-form-label">{{_('Name') }}</label>
                             <div class="col=md-6">
