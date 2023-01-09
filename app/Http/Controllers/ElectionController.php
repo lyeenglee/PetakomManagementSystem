@@ -16,9 +16,6 @@ class ElectionController extends Controller
      */
     public function index()
     {
-
-        $election = Election::all();
-        return view('ManageElection.election_menu_comittee')->with('elections', $election);
     }
 
     /**
@@ -28,7 +25,6 @@ class ElectionController extends Controller
      */
     public function create()
     {
-        return view('ManageElection.election_menu_comittee');
     }
 
     /**
@@ -85,5 +81,13 @@ class ElectionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    //All route destination here 
+    public function committeeMenu()
+    {
+        $electionList = Election::all();
+        return view('ManageElection.election_menu_comittee')->with('electionList', $electionList);
     }
 }
