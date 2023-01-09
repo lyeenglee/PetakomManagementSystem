@@ -69,10 +69,12 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="posterUrl" class="col-form-label">{{_('Update Poster') }}</label>
+                            <label for="posterUrl" class="col-form-label">{{_('Poster Url') }}</label>
                             <div class="col=md-6">
                                 <div class="custom-file">
-                                    <input name="posterUrl" type="file" class="form-control custom-file-input" id="customFile" value="{{$activities->posterUrl}}">
+                                    <!-- <input name="posterUrl" type="file" class="form-control custom-file-input" id="posterUrl" value="{{$activities->posterUrl}}"> -->
+                                    <input id="posterUrl" type="text" class="form-control"name="posterUrl" value="{{$activities->posterUrl}}" readonly/>
+                                    <!-- <iframe height="400" width="400" src="/activityAssets/{{$activities->posterUrl}}"></iframe> -->
                                 </div>
                             </div>
                         </div>

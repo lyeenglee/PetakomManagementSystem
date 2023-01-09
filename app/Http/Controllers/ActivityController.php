@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Activity;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class ActivityController extends Controller
 {
@@ -37,8 +38,27 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        Activity::create($input);
+        $input = new Activity();
+        $posterUrl=$request->posterUrl;
+        $filename=time().'.'.$posterUrl->getClientOriginalExtension();
+        $request->posterUrl->move('activityAssets',$filename);
+
+        $input->activityName = $request->activityName;
+        $input->activityDescription = $request->activityDescription;
+        $input->activityStatus = $request->activityStatus;
+        $input->startDate = $request->startDate;
+        $input->endDate = $request->endDate;
+        $input->startTime = $request->startTime;
+        $input->endTime = $request->endTime;
+        $input->activityVenue = $request->activityVenue;
+        $input->grantAmount = $request->grantAmount;
+        $input->proposalUrl = $request->proposalUrl;
+        $input->posterUrl = $filename;
+
+        $input->save();
+
+        // $input = $request->all();
+        // Activity::create($input);
         return redirect('activity')->with('flash_message', 'Activity Addedd!');
     }
 

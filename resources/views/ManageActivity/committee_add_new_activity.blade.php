@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{_('Add New Activity') }}</div>
                 <div class="card-body">
-                    <form action="{{ url('activity') }}" method="POST" onchange="myFunction()">
+                    <form action="{{ url('activity') }}" method="POST" onchange="myFunction()" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -70,10 +70,10 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="posterUrl" class="col-form-label">{{_('Update Poster') }}</label>
+                            <label for="posterUrl" class="col-form-label">{{_('Poster Url') }}</label>
                             <div class="col=md-6">
                                 <div class="custom-file">
-                                    <input name="posterUrl" type="file" class="form-control custom-file-input" id="customFile">
+                                    <input name="posterUrl" type="file" class="form-control custom-file-input" id="posterUrl">
                                 </div>
                             </div>
                         </div>
