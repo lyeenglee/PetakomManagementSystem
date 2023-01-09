@@ -53,3 +53,6 @@ Route::get('/viewActivity/{id}/deanView',[App\http\controllers\ActivityControlle
 Route::get('/viewActivity/{id}/HODView',[App\http\controllers\ActivityController::class,'HODView'])->name('activities.HODView');
 Route::get('/viewActivity/{id}/lecturerView',[App\http\controllers\ActivityController::class,'lecturerView'])->name('activities.lecturerView');
 Route::get('/viewActivity/{id}/studentView',[App\http\controllers\ActivityController::class,'studentView'])->name('activities.studentView');
+
+//Manage Elections
+Route::resource("/election", App\Http\Controllers\ElectionController::class);
