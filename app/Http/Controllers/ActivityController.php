@@ -98,6 +98,7 @@ class ActivityController extends Controller
         $activity = Activity::find($activityID);
         $input = $request->all();
         $activity->update($input);
+
         return redirect('activity')->with('flash_message', 'activity Updated!'); 
     }
 
