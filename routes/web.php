@@ -55,4 +55,4 @@ Route::get('/viewActivity/{id}/lecturerView',[App\http\controllers\ActivityContr
 Route::get('/viewActivity/{id}/studentView',[App\http\controllers\ActivityController::class,'studentView'])->name('activities.studentView');
 
 //Manage Elections
-Route::resource("/election", App\Http\Controllers\ElectionController::class);
+Route::get('/committee/election/menu', [App\Http\Controllers\ElectionController::class, 'committeeMenu'])->name('election_menu_comittee');
