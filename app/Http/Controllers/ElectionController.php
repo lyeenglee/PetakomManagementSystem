@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Election;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class ElectionController extends Controller
 {
@@ -13,7 +16,9 @@ class ElectionController extends Controller
      */
     public function index()
     {
-        //
+
+        $election = Election::all();
+        return view('ManageElection.election_menu_coordinator')->with('elections', $election);
     }
 
     /**
@@ -23,7 +28,7 @@ class ElectionController extends Controller
      */
     public function create()
     {
-        //
+        return view('ManageElection.election_menu_coordinator');
     }
 
     /**
