@@ -18,7 +18,7 @@ class ElectionController extends Controller
     {
 
         $election = Election::all();
-        return view('ManageElection.election_menu_coordinator')->with('elections', $election);
+        return view('ManageElection.election_menu_comittee')->with('elections', $election);
     }
 
     /**
@@ -28,7 +28,7 @@ class ElectionController extends Controller
      */
     public function create()
     {
-        return view('ManageElection.election_menu_coordinator');
+        return view('ManageElection.election_menu_comittee');
     }
 
     /**
