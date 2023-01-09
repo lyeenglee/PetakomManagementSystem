@@ -56,3 +56,10 @@ Route::get('/viewActivity/{id}/studentView',[App\http\controllers\ActivityContro
 
 //Manage Elections
 Route::get('/committee/election/menu', [App\Http\Controllers\ElectionController::class, 'committeeMenu'])->name('election_menu_comittee');
+Route::get('/coordinator/election/menu', [App\Http\Controllers\ElectionController::class, 'coordinatorMenu'])->name('election_menu_coordinator');
+Route::get('/dean/election/menu', [App\Http\Controllers\ElectionController::class, 'deanMenu'])->name('election_menu_dean');
+Route::get('/hod/election/menu', [App\Http\Controllers\ElectionController::class, 'hodMenu'])->name('election_menu_hod');
+Route::get('/lecturer/election/menu', [App\Http\Controllers\ElectionController::class, 'lecturerMenu'])->name('election_menu_lecturer');
+Route::get('/student/election/menu', [App\Http\Controllers\ElectionController::class, 'studentMenu'])->name('election_menu_student');
+
+
