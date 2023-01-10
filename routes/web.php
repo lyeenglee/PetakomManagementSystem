@@ -63,4 +63,4 @@ Route::get('/hod/election/menu', [App\Http\Controllers\ElectionController::class
 Route::get('/lecturer/election/menu', [App\Http\Controllers\ElectionController::class, 'lecturerMenu'])->name('election_menu_lecturer');
 Route::get('/student/election/menu', [App\Http\Controllers\ElectionController::class, 'studentMenu'])->name('election_menu_student');
 
-
+Route::get('/committee/election/addCandidate', [App\Http\Controllers\ElectionController::class, 'committeeAddCandidate'])->name('committee_add_candidate');

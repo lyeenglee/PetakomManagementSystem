@@ -52,7 +52,7 @@
                         </table>
                         <div class="col">
                             <div class="text-center">
-                                <a href="{{ url('/election/create') }}" class="btn btn-success" title="Add New Student">Add New</a>
+                                <a href="{{ url('/committee/election/addCandidate') }}" class="btn btn-success" title="Add New Student">Add New</a>
                             </div>
                         </div>   
                     </div>
