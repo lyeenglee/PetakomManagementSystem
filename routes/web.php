@@ -56,11 +56,13 @@ Route::get('/viewActivity/{id}/lecturerView',[App\http\controllers\ActivityContr
 Route::get('/viewActivity/{id}/studentView',[App\http\controllers\ActivityController::class,'studentView'])->name('activities.studentView');
 
 //Manage Elections
-Route::get('/committee/election/menu', [App\Http\Controllers\ElectionController::class, 'committeeMenu'])->name('election_menu_comittee');
-Route::get('/coordinator/election/menu', [App\Http\Controllers\ElectionController::class, 'coordinatorMenu'])->name('election_menu_coordinator');
-Route::get('/dean/election/menu', [App\Http\Controllers\ElectionController::class, 'deanMenu'])->name('election_menu_dean');
-Route::get('/hod/election/menu', [App\Http\Controllers\ElectionController::class, 'hodMenu'])->name('election_menu_hod');
-Route::get('/lecturer/election/menu', [App\Http\Controllers\ElectionController::class, 'lecturerMenu'])->name('election_menu_lecturer');
-Route::get('/student/election/menu', [App\Http\Controllers\ElectionController::class, 'studentMenu'])->name('election_menu_student');
+Route::get('/committee/election/menu', [ElectionController::class, 'committeeMenu']);
+Route::get('/coordinator/election/menu', [ElectionController::class, 'coordinatorMenu']);
+Route::get('/dean/election/menu', [ElectionController::class, 'deanMenu']);
+Route::get('/hod/election/menu', [ElectionController::class, 'hodMenu']);
+Route::get('/lecturer/election/menu', [ElectionController::class, 'lecturerMenu']);
+Route::get('/student/election/menu', [ElectionController::class, 'studentMenu']);
 
-Route::get('/committee/election/addCandidate', [App\Http\Controllers\ElectionController::class, 'committeeAddCandidate'])->name('committee_add_candidate');
+Route::get('/committee/election/addCandidate', [ElectionController::class, 'committeeAddCandidate']);
+Route::post('/committee/election/menu', [ElectionController::class, 'committeeStoreCandidate']);
+
