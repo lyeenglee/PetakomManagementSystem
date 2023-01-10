@@ -146,4 +146,10 @@ class ElectionController extends Controller
 
         return redirect('/committee/election/menu')->with('flash_message', 'Candidate Addedd!');
     }
+    
+    public function committeeViewCandidate($electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+        return view('ManageElection.committee_view_candidate')->with('electionID', $selectedElectionID);
+    }
 }
