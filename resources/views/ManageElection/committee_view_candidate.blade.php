@@ -38,7 +38,7 @@
                                 <!-- Display candidate manifesto -->
                                 <tr>
                                     <td class="col-5"><label>Manifesto</label></td>
-                                    <td class="col-7"><p style="font-weight: bold;">{{$electionID->manifesto}} </p></td>
+                                    <td class="col-7"><p style="font-weight: bold; white-space: pre-line;">{{$electionID->manifesto}} </p></td>
                                 </tr>
                             </tbody>
                         </table>
