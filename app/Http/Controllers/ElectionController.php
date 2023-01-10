@@ -35,7 +35,6 @@ class ElectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -119,5 +118,32 @@ class ElectionController extends Controller
     {
         $electionList = Election::all();
         return view('ManageElection.election_menu_student')->with('electionList', $electionList);
+    }
+
+    public function committeeAddCandidate()
+    {
+        $electionList = Election::all();
+        return view('ManageElection.committee_add_candidate');
+    }
+
+    public function committeeStoreCandidate(Request $request){
+        $input = new Election();
+
+        //get the image 
+        $electionImage=$request->electionImage;
+        //set the filename of the image by using current time (add the file type like png/jpg/jpeg)
+        $filename=time().'.'.$electionImage->getClientOriginalExtension();
+        //save the image into the local directory file
+        $electionImage->move('electionAssets/CandidateImage',$filename);
+
+        $input->name = $request->electionName;
+        $input->year = $request->electionYear;
+        $input->category = $request->eletionCategory;
+        $input->course = $request->electionCourse;
+        $input->manifesto = $request->electionManifesto;
+        $input->filePath = $filename;
+        $input->save();
+
+        return redirect('/committee/election/menu')->with('flash_message', 'Candidate Addedd!');
     }
 }
