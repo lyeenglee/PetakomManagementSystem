@@ -31,11 +31,11 @@
                         <div class="row mb-3">
                             <label for="electionDescription" class="col-md-4 col-form-label">{{_('Category') }}</label>
                             <div class="form-check">
-                                <input type="radio" name="eletionCategory" id="majlisTertinggiRdb">
+                                <input type="radio" name="eletionCategory" id="majlisTertinggiRdb" value="Majlis Tertinggi">
                                 <label class="radio-inline" style="margin-right: 5%" for="majlisTertinggiRdb">
                                     Majlis Tertinggi
                                 </label>
-                                <input type="radio" name="eletionCategory" id="majlisEksekutifRdb">
+                                <input type="radio" name="eletionCategory" id="majlisEksekutifRdb" value="Majlis Eksekutif">
                                 <label class="radio-inline" style="margin-right: 5%" for="majlisEksekutifRdb">
                                     Majlis Eksekutif
                                 </label>
@@ -46,15 +46,15 @@
                         <div class="row mb-3">
                             <label for="electionDescription" class="col-md-4 col-form-label">{{_('Course') }}</label>
                             <div class="form-check">
-                                <input type="radio" name="electionCourse" id="softwareEngineeringRdb">
+                                <input type="radio" name="electionCourse" id="softwareEngineeringRdb" value="Software Engineering">
                                 <label class="radio-inline" style="margin-right: 5%" for="softwareEngineeringRdb">
                                     Software Engineering
                                 </label>
-                                <input type="radio" name="electionCourse" id="computerNetworkRdb">
+                                <input type="radio" name="electionCourse" id="computerNetworkRdb" value="Computer Systems & Networking">
                                 <label class="radio-inline" style="margin-right: 5%" for="computerNetworkRdb">
                                     Computer Systems & Networking
                                 </label>
-                                <input type="radio" name="electionCourse" id="graphicsMultimediaRbd">
+                                <input type="radio" name="electionCourse" id="graphicsMultimediaRbd" value="Graphics & Multimedia Technology">
                                 <label class="radio-inline" style="margin-right: 5%" for="graphicsMultimediaRbd">
                                     Graphics & Multimedia Technology
                                 </label>
