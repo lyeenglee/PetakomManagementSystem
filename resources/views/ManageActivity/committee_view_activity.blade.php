@@ -8,7 +8,7 @@
                 <div class="card-header">{{_('View Activity Details') }}</div>
                 <div class="card-body">
                     <form>
-                        <input  type="hidden" name="id" id="id" value="{{$activities->id}}" id="id" />
+                        <input  type="hidden" name="activityID" id="activityID" value="{{$activities->activityID}}" />
                         <div class="row mb-3">
                             <label for="activityName" class="col-md-4 col-form-label">{{_('Name') }}</label>
                             <div class="col=md-6">
@@ -69,10 +69,12 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="posterUrl" class="col-form-label">{{_('Update Poster') }}</label>
+                            <label for="posterUrl" class="col-form-label">{{_('Poster Url') }}</label>
                             <div class="col=md-6">
                                 <div class="custom-file">
-                                    <input name="posterUrl" type="file" class="form-control custom-file-input" id="customFile" value="{{$activities->posterUrl}}">
+                                    <!-- <input name="posterUrl" type="file" class="form-control custom-file-input" id="posterUrl" value="{{$activities->posterUrl}}"> -->
+                                    <input id="posterUrl" type="text" class="form-control"name="posterUrl" value="{{$activities->posterUrl}}" readonly/>
+                                    <!-- <iframe height="400" width="400" src="/activityAssets/{{$activities->posterUrl}}"></iframe> -->
                                 </div>
                             </div>
                         </div>

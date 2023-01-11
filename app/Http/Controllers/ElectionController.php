@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Election;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class ElectionController extends Controller
 {
@@ -13,7 +18,6 @@ class ElectionController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -23,7 +27,6 @@ class ElectionController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -34,7 +37,6 @@ class ElectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -81,4 +83,191 @@ class ElectionController extends Controller
     {
         //
     }
+
+
+    //All route destination here 
+    public function committeeMenu()
+    {
+        //retrieve the null (unapproved/ unreject) candidate
+        $unapproveList = DB::table('elections')->where('approveStatus', null)->get();
+
+        //retrieve the old (rejected) candidate
+        $rejectedList = DB::table('elections')->where('approveStatus', 0)->get();
+
+        $electionList = Election::all();
+        return view('ManageElection.election_menu_comittee')
+            ->with('unapproveList', $unapproveList)
+            ->with('rejectedList',$rejectedList);
+    }
+
+    public function coordinatorMenu()
+    {
+        //retrieve the null (unapproved/ unreject) candidate
+        $unapproveList = DB::table('elections')->where('approveStatus', null)->get();
+        return view('ManageElection.election_menu_coordinator')->with('electionList', $unapproveList);
+    }
+
+    public function deanMenu()
+    {
+        $electionList = Election::all();
+        return view('ManageElection.election_menu_dean')->with('electionList', $electionList);
+    }
+
+    public function hodMenu()
+    {
+        $electionList = Election::all();
+        return view('ManageElection.election_menu_hod')->with('electionList', $electionList);
+    }
+
+    public function lecturerMenu()
+    {
+        $electionList = Election::all();
+        return view('ManageElection.election_menu_lecturer')->with('electionList', $electionList);
+    }
+
+    public function studentMenu()
+    {
+        return view('ManageElection.election_menu_student');
+    }
+
+    public function committeeAddCandidate()
+    {
+        $electionList = Election::all();
+        return view('ManageElection.committee_add_candidate');
+    }
+
+    public function committeeStoreCandidate(Request $request){
+        $input = new Election();
+
+        //get the image 
+        $electionImage=$request->electionImage;
+        //set the filename of the image by using current time (add the file type like png/jpg/jpeg)
+        $filename=time().'.'.$electionImage->getClientOriginalExtension();
+        //save the image into the local directory file
+        $electionImage->move('electionAssets/CandidateImage',$filename);
+
+        $input->name = $request->electionName;
+        $input->year = $request->electionYear;
+        $input->category = $request->eletionCategory;
+        $input->course = $request->electionCourse;
+        $input->manifesto = $request->electionManifesto;
+        $input->filePath = $filename;
+        $input->save();
+
+        return redirect('/committee/election/menu')->with('flash_message', 'Candidate Addedd!');
+    }
+    
+    public function committeeViewCandidate($electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+        return view('ManageElection.committee_view_candidate')->with('electionID', $selectedElectionID);
+    }
+    
+    public function committeeEditCandidate($electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+        return view('ManageElection.committee_edit_candidate')->with('electionID', $selectedElectionID);
+    }
+
+    private function removeImage($filePath){
+        $old_image_path = "electionAssets/CandidateImage/" . $filePath; 
+
+        if(File::exists($old_image_path)) {
+            File::delete($old_image_path);
+        }
+    }
+
+    public function committeeEditCandidateDetails(Request $request, $electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+
+        $selectedElectionID->name = $request->electionName;
+        $selectedElectionID->year = $request->electionYear;
+        $selectedElectionID->category = $request->eletionCategory;
+        $selectedElectionID->course = $request->electionCourse;
+        $selectedElectionID->manifesto = $request->electionManifesto;
+
+        //get the image 
+        $electionImage=$request->electionImage;
+
+        //if new image upload
+        if($electionImage!="") {
+            //Delete the old image
+            $this->removeImage($selectedElectionID->filePath);
+
+            //set the filename of the image by using current time (add the file type like png/jpg/jpeg)
+            $filename=time().'.'.$electionImage->getClientOriginalExtension();
+            //save the image into the local directory file
+            $electionImage->move('electionAssets/CandidateImage',$filename);
+
+            $selectedElectionID->filePath = $filename;
+        }
+
+        //set the approve status to null (normally work for candidate that has been reject)
+        $selectedElectionID->approveStatus = null;
+        $selectedElectionID->rejectReason = null;
+
+        $selectedElectionID->save();
+        return redirect('/committee/election/menu')->with('flash_message', 'Candidate Updated!');
+    }
+
+    public function committeeRemoveCandidateDetails($electionID){
+
+        $selectedElectionID= Election::find($electionID);
+
+        //Delete the old image+
+        $this->removeImage($selectedElectionID->filePath);
+
+        $selectedElectionID->delete();
+        return redirect('/committee/election/menu')->with('flash_message', 'Candidate Deleted!');
+    }
+
+    public function coordinatorApproveCandidate($electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+        return view('ManageElection.coordinator_approve_candidate')->with('electionID', $selectedElectionID);
+    }
+
+    public function coordinatorApproveCandidateDetails(Request $request, $electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+
+        //if request approve
+        if($request->approveStatus =="Approve"){
+            //make candidate become votable
+            $selectedElectionID->approveStatus = true;
+        }
+        //if request decline
+        else{
+            $selectedElectionID->approveStatus = false;
+            //save reject reason to db
+            $selectedElectionID->rejectReason = $request->electionRejectReason;
+        }
+
+        $selectedElectionID->save();
+        return redirect('/coordinator/election/menu')->with('flash_message', 'Candidate Approved Status Updated!');
+    }
+
+    public function studentViewCandidateMenu()
+    {
+        //retrieve approved candidate
+        $approvedList = DB::table('elections')->where('approveStatus', 1)->get();
+        return view('ManageElection.student_view_candidate_menu')->with('candidateList', $approvedList);
+    }
+
+    public function studentVoteCandidate()
+    {
+        //retrieve approved candidate
+        $approvedList = DB::table('elections')->where('approveStatus', 1)->get();
+        return view('ManageElection.student_view_candidate_menu')->with('candidateList', $approvedList);
+    }
+
+    public function studentViewCoordinatoreMenu()
+    {
+        //retrieve the commitee elected
+        $comitteeList = DB::table('elections')->where('positionStatus', 1)->get();
+        return view('ManageElection.student_view_candidate_menu')->with('comitteeList', $comitteeList);
+    }
+
+
 }

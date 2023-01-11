@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('course');
             $table->longText('manifesto');
             $table->string('filePath');
-            $table->boolean('approveStatus')->default(0)->change();
+            $table->boolean('approveStatus')->nullable();
             $table->string('rejectReason')->nullable();
             $table->integer('vote')->nullable();
             $table->boolean('positionStatus')->nullable();

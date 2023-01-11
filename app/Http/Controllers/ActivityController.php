@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Activity;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class ActivityController extends Controller
 {
@@ -37,8 +38,27 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        Activity::create($input);
+        $input = new Activity();
+        $posterUrl=$request->posterUrl;
+        $filename=time().'.'.$posterUrl->getClientOriginalExtension();
+        $request->posterUrl->move('activityAssets',$filename);
+
+        $input->activityName = $request->activityName;
+        $input->activityDescription = $request->activityDescription;
+        $input->activityStatus = $request->activityStatus;
+        $input->startDate = $request->startDate;
+        $input->endDate = $request->endDate;
+        $input->startTime = $request->startTime;
+        $input->endTime = $request->endTime;
+        $input->activityVenue = $request->activityVenue;
+        $input->grantAmount = $request->grantAmount;
+        $input->proposalUrl = $request->proposalUrl;
+        $input->posterUrl = $filename;
+
+        $input->save();
+
+        // $input = $request->all();
+        // Activity::create($input);
         return redirect('activity')->with('flash_message', 'Activity Addedd!');
     }
 
@@ -48,9 +68,9 @@ class ActivityController extends Controller
      * @param  \App\Models\Activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($activityID)
     {
-        $activity= Activity::find($id);
+        $activity= Activity::find($activityID);
         return view('ManageActivity.committee_view_activity')->with('activities', $activity);
     }
 
@@ -60,9 +80,9 @@ class ActivityController extends Controller
      * @param  \App\Models\Activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($activityID)
     {
-        $activity = Activity::find($id);
+        $activity = Activity::find($activityID);
         return view('ManageActivity.committee_update_activity')->with('activities', $activity);
     }
 
@@ -73,11 +93,12 @@ class ActivityController extends Controller
      * @param  \App\Models\Activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $activityID)
     {
-        $activity = Activity::find($id);
+        $activity = Activity::find($activityID);
         $input = $request->all();
         $activity->update($input);
+
         return redirect('activity')->with('flash_message', 'activity Updated!'); 
     }
 
@@ -87,9 +108,9 @@ class ActivityController extends Controller
      * @param  \App\Models\Activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($activityID)
     {
-        Activity::destroy($id);
+        Activity::destroy($activityID);
         return redirect('activity')->with('flash_message', 'Activity deleted!');  
     }
 
@@ -99,9 +120,9 @@ class ActivityController extends Controller
         return view('ManageActivity.coordinator_activity_menu')->with('activities', $activity);
     }
 
-    public function coordinatorView($id)
+    public function coordinatorView($activityID)
     {
-        $activity= Activity::find($id);
+        $activity= Activity::find($activityID);
         return view('ManageActivity.coordinator_view_activity')->with('activities', $activity);
     }
 
@@ -111,9 +132,9 @@ class ActivityController extends Controller
         return view('ManageActivity.dean_activity_menu')->with('activities', $activity);
     }
 
-    public function deanView($id)
+    public function deanView($activityID)
     {
-        $activity= Activity::find($id);
+        $activity= Activity::find($activityID);
         return view('ManageActivity.dean_view_activity')->with('activities', $activity);
     }
 
@@ -123,9 +144,9 @@ class ActivityController extends Controller
         return view('ManageActivity.HOD_activity_menu')->with('activities', $activity);
     }
 
-    public function HODView($id)
+    public function HODView($activityID)
     {
-        $activity= Activity::find($id);
+        $activity= Activity::find($activityID);
         return view('ManageActivity.HOD_view_activity')->with('activities', $activity);
     }
 
@@ -135,9 +156,9 @@ class ActivityController extends Controller
         return view('ManageActivity.lecturer_activity_menu')->with('activities', $activity);
     }
 
-    public function lecturerView($id)
+    public function lecturerView($activityID)
     {
-        $activity= Activity::find($id);
+        $activity= Activity::find($activityID);
         return view('ManageActivity.lecturer_view_activity')->with('activities', $activity);
     }
 
@@ -147,9 +168,9 @@ class ActivityController extends Controller
         return view('ManageActivity.student_activity_menu')->with('activities', $activity);
     }
 
-    public function studentView($id)
+    public function studentView($activityID)
     {
-        $activity= Activity::find($id);
+        $activity= Activity::find($activityID);
         return view('ManageActivity.student_view_activity')->with('activities', $activity);
     }
 }

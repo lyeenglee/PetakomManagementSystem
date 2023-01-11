@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\bulletin;
 use Illuminate\Http\Request;
 
 class bulletinController extends Controller
@@ -14,6 +15,8 @@ class bulletinController extends Controller
     public function index()
     {
         //
+        $bulletin = bulletin::all();
+        return view('ManageBulletin.committeeBulletin')->with('bulletins', $bulletin);
     }
 
     /**
@@ -24,6 +27,7 @@ class bulletinController extends Controller
     public function create()
     {
         //
+        return view('ManageBulletin.createBulletin');
     }
 
     /**
@@ -35,6 +39,7 @@ class bulletinController extends Controller
     public function store(Request $request)
     {
         //
+        $input = new Activity();
     }
 
     /**
@@ -80,5 +85,42 @@ class bulletinController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    //Route
+    public function committeeMenu()
+    {
+        $bulletin = bulletin::all();
+        return view('ManageBulletin.committeeBulletin')->with('bulletins', $bulletin);
+    }
+
+    public function coordinatorMenu()
+    {
+        $bulletin = bulletin::all();
+        return view('ManageBulletin.Bulletin')->with('bulletins', $bulletin);
+    }
+    
+    public function deanMenu()
+    {
+        $bulletin = bulletin::all();
+        return view('ManageBulletin.Bulletin')->with('bulletins', $bulletin);
+    }
+
+    public function hodMenu()
+    {
+        $bulletin = bulletin::all();
+        return view('ManageBulletin.Bulletin')->with('bulletins', $bulletin);
+    }
+
+    public function lecturerMenu()
+    {
+        $bulletin = bulletin::all();
+        return view('ManageBulletin.Bulletin')->with('bulletins', $bulletin);
+    }
+
+    public function studentMenu()
+    {
+        $bulletin = bulletin::all();
+        return view('ManageBulletin.Bulletin')->with('bulletins', $bulletin);
     }
 }

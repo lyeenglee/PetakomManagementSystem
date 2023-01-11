@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{_('Edit Activity Details') }}</div>
                 <div class="card-body">
-                    <form action="{{ url('activity/' .$activities->id) }}" method="POST" onchange="myFunction()">
+                    <form action="{{ url('activity/' .$activities->activityID) }}" method="POST" onchange="myFunction()" enctype="multipart/form-data">
                         {!! csrf_field() !!}
                         @method("PATCH")
                         <input  type="hidden" name="id" id="id" value="{{$activities->id}}" id="id" />
@@ -65,7 +65,8 @@
                                 <select id="proposalUrl" class="form-control" name="proposalUrl" required>
                                     <option selected>{{$activities->proposalUrl}}</option>
                                     <option >Student Development Programmes (SDP)</option>
-                                    <option >FYPro-Com Carnival</option>
+                                    <option >i-Hack 2022</option>
+                                    <option >Huawei Career Day</option>
                                 </select>
                             </div>
                         </div>
@@ -74,8 +75,9 @@
                             <label for="posterUrl" class="col-form-label">{{_('Update Poster') }}</label>
                             <div class="col=md-6">
                                 <div class="custom-file">
-                                    
-                                    <input name="posterUrl" type="file" class="form-control custom-file-input" id="customFile" value="{{$activities->posterUrl}}">
+                                    <!-- <input id="posterUrl" type="text" class="form-control"name="posterUrl" value="{{$activities->posterUrl}}" readonly/> -->
+                                    <input id="posterUrl" type="text" class="form-control"name="posterUrl" value="{{$activities->posterUrl}}" readonly/>
+                                    <input name="posterUrl" type="file" class="form-control custom-file-input" id="posterUrl" value="{{$activities->posterUrl}}">
                                 </div>
                             </div>
                         </div>
