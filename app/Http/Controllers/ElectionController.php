@@ -160,6 +160,14 @@ class ElectionController extends Controller
         return view('ManageElection.committee_edit_candidate')->with('electionID', $selectedElectionID);
     }
 
+    private function removeImage($filePath){
+        $old_image_path = "electionAssets/CandidateImage/" . $filePath; 
+
+        if(File::exists($old_image_path)) {
+            File::delete($old_image_path);
+        }
+    }
+
     public function committeeEditCandidateDetails(Request $request, $electionID)
     {
         $selectedElectionID= Election::find($electionID);
@@ -176,10 +184,7 @@ class ElectionController extends Controller
         //if new image upload
         if($electionImage!="") {
             //Delete the old image
-            $old_image_path = "electionAssets/CandidateImage/" . $selectedElectionID->filePath;  
-            if(File::exists($old_image_path)) {
-                File::delete($old_image_path);
-            }
+            $this->removeImage($selectedElectionID->filePath);
 
             //set the filename of the image by using current time (add the file type like png/jpg/jpeg)
             $filename=time().'.'.$electionImage->getClientOriginalExtension();
@@ -190,8 +195,17 @@ class ElectionController extends Controller
         }
 
         $selectedElectionID->save();
-
         return redirect('/committee/election/menu')->with('flash_message', 'Candidate Updated!');
+    }
+
+    public function committeeRemoveCandidateDetails($electionID){
+
+        $selectedElectionID= Election::find($electionID);
+        //Delete the old image+
+        $this->removeImage($selectedElectionID->filePath);
+
+        $selectedElectionID->delete();
+        return redirect('/committee/election/menu')->with('flash_message', 'Candidate Deleted!');
     }
 
 }

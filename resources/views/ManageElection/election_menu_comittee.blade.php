@@ -42,7 +42,7 @@
                                     <a href="{{ url('/committee/election/viewCandidate/' . $item->electionID) }}" title="View election"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                     <a href="{{ url('/committee/election/editCandidate/' . $item->electionID) }}" title="Edit election"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
                                     
-                                    <form method="POST" action="{{ url('/election' . '/' . $item->electionID) }}" accept-charset="UTF-8" style="display:inline">
+                                    <form method="POST" action="{{ url('/committee/election/delete/'. $item->electionID) }}" accept-charset="UTF-8" style="display:inline">
                                     {{ csrf_field() }}    
                                     {{ method_field('DELETE') }}
                                         <button type="submit" class="btn btn-danger pull-right" title="Delete" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
