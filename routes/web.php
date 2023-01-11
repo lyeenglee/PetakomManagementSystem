@@ -78,8 +78,9 @@ Route::get('/coordinator/election/approveCandidate/{id}', [ElectionController::c
 Route::patch('/coordinator/election/edit/{id}', [ElectionController::class, 'coordinatorApproveCandidateDetails']);
 
 //Election- Student
-Route::get('/coordinator/election/approveCandidate/{id}', [ElectionController::class, 'coordinatorApproveCandidate']);
-Route::patch('/coordinator/election/edit/{id}', [ElectionController::class, 'coordinatorApproveCandidateDetails']);
+Route::get('/student/election/studentViewCandidateMenu', [ElectionController::class, 'studentViewCandidateMenu']);
+Route::get('/student/election/studentVoteCandidateMenu', [ElectionController::class, 'studentVoteCandidateMenu']);
+Route::get('/student/election/studentViewCoordinatoreMenu', [ElectionController::class, 'studentViewCoordinatoreMenu']);
 
 //Manage Bulletin
 //Menu
