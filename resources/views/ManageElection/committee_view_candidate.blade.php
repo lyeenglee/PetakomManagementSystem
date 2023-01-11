@@ -12,7 +12,6 @@
                         <img src="{{ asset('electionAssets/CandidateImage/'. $electionID->filePath) }}" alt="image of candidate" style="max-width:20%;height:auto;"/>
                         <h3 class="card-title" style="font-weight: bold;">{{$electionID->name}}</h3><br/><br/>
                     </div>
-                    
 
                     <div class="table-responsive" style="margin-left: auto; margin-right: auto; width: 70%;">
                         <table class="table table-borderless">
