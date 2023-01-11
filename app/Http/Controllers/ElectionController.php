@@ -6,6 +6,7 @@ use App\Models\Election;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ElectionController extends Controller
 {
@@ -152,4 +153,45 @@ class ElectionController extends Controller
         $selectedElectionID= Election::find($electionID);
         return view('ManageElection.committee_view_candidate')->with('electionID', $selectedElectionID);
     }
+    
+    public function committeeEditCandidate($electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+        return view('ManageElection.committee_edit_candidate')->with('electionID', $selectedElectionID);
+    }
+
+    public function committeeEditCandidateDetails(Request $request, $electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+
+        $selectedElectionID->name = $request->electionName;
+        $selectedElectionID->year = $request->electionYear;
+        $selectedElectionID->category = $request->eletionCategory;
+        $selectedElectionID->course = $request->electionCourse;
+        $selectedElectionID->manifesto = $request->electionManifesto;
+
+        //get the image 
+        $electionImage=$request->electionImage;
+
+        //if new image upload
+        if($electionImage!="") {
+            //Delete the old image
+            $old_image_path = "electionAssets/CandidateImage/" . $selectedElectionID->filePath;  
+            if(File::exists($old_image_path)) {
+                File::delete($old_image_path);
+            }
+
+            //set the filename of the image by using current time (add the file type like png/jpg/jpeg)
+            $filename=time().'.'.$electionImage->getClientOriginalExtension();
+            //save the image into the local directory file
+            $electionImage->move('electionAssets/CandidateImage',$filename);
+
+            $selectedElectionID->filePath = $filename;
+        }
+
+        $selectedElectionID->save();
+
+        return redirect('/committee/election/menu')->with('flash_message', 'Candidate Updated!');
+    }
+
 }
