@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class ElectionController extends Controller
 {
@@ -93,8 +94,9 @@ class ElectionController extends Controller
 
     public function coordinatorMenu()
     {
-        $electionList = Election::all();
-        return view('ManageElection.election_menu_coordinator')->with('electionList', $electionList);
+        //retrieve the null (unapproved/ unreject) candidate
+        $unapproveList = DB::table('elections')->where('approveStatus', null)->get();
+        return view('ManageElection.election_menu_coordinator')->with('electionList', $unapproveList);
     }
 
     public function deanMenu()
