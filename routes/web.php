@@ -79,7 +79,7 @@ Route::patch('/coordinator/election/edit/{id}', [ElectionController::class, 'coo
 
 //Election- Student
 Route::get('/student/election/studentViewCandidateMenu', [ElectionController::class, 'studentViewCandidateMenu']);
-Route::get('/student/election/studentVoteCandidateMenu', [ElectionController::class, 'studentVoteCandidateMenu']);
+Route::get('/student/election/studentVoteCandidate', [ElectionController::class, 'studentVoteCandidate']);
 Route::get('/student/election/studentViewCoordinatoreMenu', [ElectionController::class, 'studentViewCoordinatoreMenu']);
 
 //Manage Bulletin
