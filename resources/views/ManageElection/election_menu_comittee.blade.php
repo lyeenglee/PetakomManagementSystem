@@ -5,12 +5,13 @@
 @section('title', 'Committee Candidate Management')
 <div class="container">
     <div class="row justify-content-center">
-        
         <div class="col-md-8"> 
         <h3 style="text-align:center;font-weight: bold;">Candidate Management</h3><br>
             <div class="card">
                 <div class="card-header">{{ __('Candidates List') }}</div>
                 <br>
+                <!-- New/ Waiting to approve candidate table-->
+                <h5 style="text-align:center;font-weight: bold;">New/ Waiting to approve candidate</h5>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="electionTable">
@@ -32,7 +33,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($electionList as $item)
+                            @foreach($unapproveList as $item)
                                 <tr>
                                 <!-- display all candidate here -->
                                 <td>{{ $loop->iteration }}</td>
@@ -43,8 +44,9 @@
                                     <a href="{{ url('/committee/election/editCandidate/' . $item->electionID) }}" title="Edit election"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
                                     
                                     <form method="POST" action="{{ url('/committee/election/delete/'. $item->electionID) }}" accept-charset="UTF-8" style="display:inline">
-                                    {{ csrf_field() }}    
-                                    {{ method_field('DELETE') }}
+                                        @csrf
+                                        @method("DELETE")
+                                        
                                         <button type="submit" class="btn btn-danger pull-right" title="Delete" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                     </form>                             
                                 </td>
@@ -59,6 +61,53 @@
                         </div>   
                     </div>
                 </div>
+                <br/>
+                <!-- Old/ Rejected of candidate approval table-->
+                <h5 style="text-align:center;font-weight: bold;">Rejected candidate</h5>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="electionTable">
+                            <thead>
+                                <!-- sort function here -->
+                                <tr>
+                                <th onclick='sortCandidateTable(0)'>#</th>
+                                <th class="col-3" onclick='sortCandidateTable(1)'>Name
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
+                                        <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
+                                    </svg>
+                                </th>
+                                <th class="col-5" onclick='sortCandidateTable(2)'>Reject Reason
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
+                                        <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
+                                    </svg>
+                                </th>
+                                <th class="col-4">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($rejectedList as $item)
+                                <tr>
+                                <!-- display all candidate here -->
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->name}}</td>
+                                <td>{{ $item->rejectReason}}</td>
+                                <td >   
+                                    <a href="{{ url('/committee/election/editCandidate/' . $item->electionID) }}" title="Edit election"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
+                                    
+                                    <form method="POST" action="{{ url('/committee/election/delete/'. $item->electionID) }}" accept-charset="UTF-8" style="display:inline">
+                                        @csrf
+                                        @method("DELETE")
+                                        
+                                        <button type="submit" class="btn btn-danger pull-right" title="Delete" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                    </form>                             
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
             </div>
             <br>
             <div class="text-center">

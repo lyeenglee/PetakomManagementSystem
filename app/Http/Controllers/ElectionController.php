@@ -88,8 +88,16 @@ class ElectionController extends Controller
     //All route destination here 
     public function committeeMenu()
     {
+        //retrieve the null (unapproved/ unreject) candidate
+        $unapproveList = DB::table('elections')->where('approveStatus', null)->get();
+
+        //retrieve the old (rejected) candidate
+        $rejectedList = DB::table('elections')->where('approveStatus', 0)->get();
+
         $electionList = Election::all();
-        return view('ManageElection.election_menu_comittee')->with('electionList', $electionList);
+        return view('ManageElection.election_menu_comittee')
+            ->with('unapproveList', $unapproveList)
+            ->with('rejectedList',$rejectedList);
     }
 
     public function coordinatorMenu()
@@ -203,6 +211,7 @@ class ElectionController extends Controller
     public function committeeRemoveCandidateDetails($electionID){
 
         $selectedElectionID= Election::find($electionID);
+
         //Delete the old image+
         $this->removeImage($selectedElectionID->filePath);
 
