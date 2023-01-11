@@ -204,6 +204,10 @@ class ElectionController extends Controller
             $selectedElectionID->filePath = $filename;
         }
 
+        //set the approve status to null (normally work for candidate that has been reject)
+        $selectedElectionID->approveStatus = null;
+        $selectedElectionID->rejectReason = null;
+
         $selectedElectionID->save();
         return redirect('/committee/election/menu')->with('flash_message', 'Candidate Updated!');
     }
