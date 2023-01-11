@@ -34,7 +34,7 @@
                             <tbody>
                             @foreach($electionList as $item)
                                 <tr>
-                                <!-- display all candidate here -->
+                                <!-- display all unapprove candidate here-->
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->name}}</td>
                                 <td>{{ $item->category}}</td>
