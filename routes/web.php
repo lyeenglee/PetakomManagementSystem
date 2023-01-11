@@ -57,6 +57,7 @@ Route::get('/viewActivity/{id}/lecturerView',[App\http\controllers\ActivityContr
 Route::get('/viewActivity/{id}/studentView',[App\http\controllers\ActivityController::class,'studentView'])->name('activities.studentView');
 
 //Manage Elections
+//Menu
 Route::get('/committee/election/menu', [ElectionController::class, 'committeeMenu']);
 Route::get('/coordinator/election/menu', [ElectionController::class, 'coordinatorMenu']);
 Route::get('/dean/election/menu', [ElectionController::class, 'deanMenu']);
@@ -64,10 +65,13 @@ Route::get('/hod/election/menu', [ElectionController::class, 'hodMenu']);
 Route::get('/lecturer/election/menu', [ElectionController::class, 'lecturerMenu']);
 Route::get('/student/election/menu', [ElectionController::class, 'studentMenu']);
 
+//Election- Committee
 Route::get('/committee/election/addCandidate', [ElectionController::class, 'committeeAddCandidate']);
 Route::post('/committee/election/menu', [ElectionController::class, 'committeeStoreCandidate']);
-
 Route::get('/committee/election/viewCandidate/{id}', [ElectionController::class, 'committeeViewCandidate']);
+Route::get('/committee/election/editCandidate/{id}', [ElectionController::class, 'committeeEditCandidate']);
+Route::patch('/committee/election/edit/{id}', [ElectionController::class, 'committeeEditCandidateDetails']);
+Route::delete('/committee/election/delete/{id}', [ElectionController::class, 'committeeRemoveCandidateDetails']);
 
 //Manage Bulletin
 //Menu
@@ -77,3 +81,4 @@ Route::get('/dean/bulletin/menu', [bulletinController::class, 'deanMenu']);
 Route::get('/hod/bulletin/menu', [bulletinController::class, 'hodMenu']);
 Route::get('/lecturer/bulletin/menu', [bulletinController::class, 'lecturerMenu']);
 Route::get('/student/bulletin/menu', [bulletinController::class, 'studentMenu']);
+
