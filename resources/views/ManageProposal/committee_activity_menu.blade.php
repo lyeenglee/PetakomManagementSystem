@@ -55,7 +55,9 @@
                             </tbody>
                         </table>
                         <div class="col">
-
+                        <div class="text-center">
+                                <a href="{{ url('/committee/addProposal') }}" class="btn btn-success" title="Add New Proposal">Add New Proposal</a>
+                            </div>
                         </div>   
                     </div>
                 </div>
