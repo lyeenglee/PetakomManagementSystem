@@ -65,5 +65,6 @@ Route::get('/student/election/menu', [ElectionController::class, 'studentMenu'])
 
 Route::get('/committee/election/addCandidate', [ElectionController::class, 'committeeAddCandidate']);
 Route::post('/committee/election/menu', [ElectionController::class, 'committeeStoreCandidate']);
-
 Route::get('/committee/election/viewCandidate/{id}', [ElectionController::class, 'committeeViewCandidate']);
+Route::get('/committee/election/editCandidate/{id}', [ElectionController::class, 'committeeEditCandidate']);
+Route::patch('/committee/election/edit/{id}', [ElectionController::class, 'committeeEditCandidateDetails']);
