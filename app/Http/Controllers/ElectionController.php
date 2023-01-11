@@ -127,8 +127,7 @@ class ElectionController extends Controller
 
     public function studentMenu()
     {
-        $electionList = Election::all();
-        return view('ManageElection.election_menu_student')->with('electionList', $electionList);
+        return view('ManageElection.election_menu_student');
     }
 
     public function committeeAddCandidate()
@@ -248,5 +247,27 @@ class ElectionController extends Controller
         $selectedElectionID->save();
         return redirect('/coordinator/election/menu')->with('flash_message', 'Candidate Approved Status Updated!');
     }
+
+    public function studentViewCandidateMenu()
+    {
+        //retrieve approved candidate
+        $approvedList = DB::table('elections')->where('approveStatus', 1)->get();
+        return view('ManageElection.student_view_candidate_menu')->with('candidateList', $approvedList);
+    }
+
+    public function studentVoteCandidate()
+    {
+        //retrieve approved candidate
+        $approvedList = DB::table('elections')->where('approveStatus', 1)->get();
+        return view('ManageElection.student_view_candidate_menu')->with('candidateList', $approvedList);
+    }
+
+    public function studentViewCoordinatoreMenu()
+    {
+        //retrieve the commitee elected
+        $comitteeList = DB::table('elections')->where('positionStatus', 1)->get();
+        return view('ManageElection.student_view_candidate_menu')->with('comitteeList', $comitteeList);
+    }
+
 
 }
