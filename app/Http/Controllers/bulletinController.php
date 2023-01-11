@@ -27,7 +27,7 @@ class bulletinController extends Controller
     public function create()
     {
         //
-        return view('ManageBulletin.committeeBulletin');
+        return view('ManageBulletin.createBulletin');
     }
 
     /**
@@ -39,6 +39,7 @@ class bulletinController extends Controller
     public function store(Request $request)
     {
         //
+        $input = new Activity();
     }
 
     /**

@@ -83,10 +83,16 @@ Route::patch('/coordinator/election/edit/{id}', [ElectionController::class, 'coo
 
 //Manage Bulletin
 //Menu
-Route::get('/committee/bulletin/menu', [bulletinController::class, 'committeeMenu']);
+Route::resource("/bulletin", ActivityController::class);
 Route::get('/coordinator/bulletin/menu', [bulletinController::class, 'coordinatorMenu']);
 Route::get('/dean/bulletin/menu', [bulletinController::class, 'deanMenu']);
 Route::get('/hod/bulletin/menu', [bulletinController::class, 'hodMenu']);
 Route::get('/lecturer/bulletin/menu', [bulletinController::class, 'lecturerMenu']);
 Route::get('/student/bulletin/menu', [bulletinController::class, 'studentMenu']);
 
+//View Bulletin
+Route::get('/coordinator/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'coordinatorMenu']);
+Route::get('/dean/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'deanMenu']);
+Route::get('/hod/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'hodMenu']);
+Route::get('/lecturer/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'lecturerMenu']);
+Route::get('/student/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'studentMenu']);
