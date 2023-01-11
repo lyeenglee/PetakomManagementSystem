@@ -15,6 +15,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered" id="electionTable">
                             <thead>
+                                <!-- sort function here -->
                                 <tr>
                                 <th onclick='sortCandidateTable(0)'>#</th>
                                 <th class="col-5" onclick='sortCandidateTable(1)'>Name
@@ -33,12 +34,13 @@
                             <tbody>
                             @foreach($electionList as $item)
                                 <tr>
+                                <!-- display all candidate here -->
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->name}}</td>
                                 <td>{{ $item->category}}</td>
                                 <td >   
                                     <a href="{{ url('/committee/election/viewCandidate/' . $item->electionID) }}" title="View election"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                    <a href="{{ url('/election/' . $item->electionID . '/edit') }}" title="Edit election"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
+                                    <a href="{{ url('/committee/election/editCandidate/' . $item->electionID) }}" title="Edit election"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
                                     
                                     <form method="POST" action="{{ url('/election' . '/' . $item->electionID) }}" accept-charset="UTF-8" style="display:inline">
                                     {{ csrf_field() }}    
