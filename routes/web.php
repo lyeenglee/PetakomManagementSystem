@@ -77,6 +77,10 @@ Route::delete('/committee/election/delete/{id}', [ElectionController::class, 'co
 Route::get('/coordinator/election/approveCandidate/{id}', [ElectionController::class, 'coordinatorApproveCandidate']);
 Route::patch('/coordinator/election/edit/{id}', [ElectionController::class, 'coordinatorApproveCandidateDetails']);
 
+//Election- Student
+Route::get('/coordinator/election/approveCandidate/{id}', [ElectionController::class, 'coordinatorApproveCandidate']);
+Route::patch('/coordinator/election/edit/{id}', [ElectionController::class, 'coordinatorApproveCandidateDetails']);
+
 //Manage Bulletin
 //Menu
 Route::get('/committee/bulletin/menu', [bulletinController::class, 'committeeMenu']);
