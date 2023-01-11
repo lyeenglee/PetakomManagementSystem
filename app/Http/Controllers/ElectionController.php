@@ -208,4 +208,30 @@ class ElectionController extends Controller
         return redirect('/committee/election/menu')->with('flash_message', 'Candidate Deleted!');
     }
 
+    public function coordinatorApproveCandidate($electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+        return view('ManageElection.coordinator_approve_candidate')->with('electionID', $selectedElectionID);
+    }
+
+    public function coordinatorApproveCandidateDetails(Request $request, $electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+
+        //if request approve
+        if($request->approveStatus =="Approve"){
+            //make candidate become votable
+            $selectedElectionID->approveStatus = true;
+        }
+        //if request decline
+        else{
+            $selectedElectionID->approveStatus = false;
+            //save reject reason to db
+            $selectedElectionID->rejectReason = $request->electionRejectReason;
+        }
+
+        $selectedElectionID->save();
+        return redirect('/coordinator/election/menu')->with('flash_message', 'Candidate Approved Status Updated!');
+    }
+
 }
