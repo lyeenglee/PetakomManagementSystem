@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\ProposalController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -53,3 +54,30 @@ Route::get('/viewActivity/{id}/deanView',[App\http\controllers\ActivityControlle
 Route::get('/viewActivity/{id}/HODView',[App\http\controllers\ActivityController::class,'HODView'])->name('activities.HODView');
 Route::get('/viewActivity/{id}/lecturerView',[App\http\controllers\ActivityController::class,'lecturerView'])->name('activities.lecturerView');
 Route::get('/viewActivity/{id}/studentView',[App\http\controllers\ActivityController::class,'studentView'])->name('activities.studentView');
+
+//Manage Proposal
+Route::resource("/proposal", ProposalController::class);
+
+//actor activity menu
+Route::get('/committee/activity/menu', [App\Http\Controllers\ProposalController::class, 'committeeMenu'])->name('committee_activity_menu');
+Route::get('/coordinator/activity/menu', [App\Http\Controllers\ProposalController::class, 'coordinatorMenu'])->name('coordinator_activity_menu');
+Route::get('/dean/activity/menu', [App\Http\Controllers\ProposalController::class, 'deanMenu'])->name('dean_activity_menu');
+
+//proposal looping
+Route::get('/viewProposal/{proposalID}',[App\http\controllers\ProposalController::class,'coordinatorView'])->name('proposals.coordinatorView');
+Route::get('/viewProposal/{proposalID}',[App\http\controllers\ProposalController::class,'deanView'])->name('proposals.deanView');
+
+//committeee activity actions
+Route::get('/committee/addProposal', [App\Http\Controllers\ProposalController::class, 'addProposal'])->name('committee_add_proposal');
+Route::get('/committee/viewStatus', [App\Http\Controllers\ProposalController::class, 'viewStatus'])->name('committee_view_status');
+Route::get('/committee/download', [App\Http\Controllers\ProposalController::class, 'downloadReport'])->name('committee_download_report');
+
+//coordinator activity actions
+Route::get('/coordinator/approve', [App\Http\Controllers\ProposalController::class, 'coordinatorApprove'])->name('coordinator_approve_proposal');
+
+//dean activity actions
+Route::get('/dean/approve', [App\Http\Controllers\ProposalController::class, 'deanApprove'])->name('dean_approve_proposal');
+
+//Toggle Button for Status
+Route::get('users', 'ProposalController@index');
+Route::get('changeStatus', 'ProposalController@changeStatus');
