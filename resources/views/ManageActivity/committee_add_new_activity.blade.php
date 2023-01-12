@@ -66,6 +66,7 @@
                                     <option >Student Development Programmes (SDP)</option>
                                     <option >i-Hack 2022</option>
                                     <option >Huawei Career Day</option>
+                                    <option >Election</option>
                                 </select>
                             </div>
                         </div>
