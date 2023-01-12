@@ -45,7 +45,7 @@
                         </table>
                     </div>
 
-                    <!-- Submit and Cancel Btn Field -->
+                    <!-- Back Btn Field -->
                     <div class="col">
                         <div class="text-center">
                             <a href="{{ url('/committee/election/menu') }}" class="col-2 btn btn-secondary pull-right">Back</a>
