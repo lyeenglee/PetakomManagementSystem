@@ -114,7 +114,7 @@ Route::get('/student/election/studentViewCoordinatoreMenu', [ElectionController:
 
 //Manage Bulletin
 //Menu
-Route::resource("/bulletin", ActivityController::class);
+Route::resource("/bulletin", bulletinController::class);
 Route::get('/coordinator/bulletin/menu', [bulletinController::class, 'coordinatorMenu']);
 Route::get('/dean/bulletin/menu', [bulletinController::class, 'deanMenu']);
 Route::get('/hod/bulletin/menu', [bulletinController::class, 'hodMenu']);
