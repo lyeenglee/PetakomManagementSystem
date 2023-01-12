@@ -113,6 +113,15 @@ Route::get('/student/election/studentViewCommitteeMenu', [ElectionController::cl
 Route::get('/student/election/viewCandidate/{id}', [ElectionController::class, 'studentViewCandidate']);
 Route::get('/student/election/viewCommittee/{id}', [ElectionController::class, 'studentViewCommittee']);
 
+//Election- Dean
+Route::get('/dean/election/viewCommittee/{id}', [ElectionController::class, 'deanViewCommittee']);
+
+//Election- HOD
+Route::get('/hod/election/viewCommittee/{id}', [ElectionController::class, 'hodViewCommittee']);
+
+//Election- Lecturer
+Route::get('/lecturer/election/viewCommittee/{id}', [ElectionController::class, 'lecturerViewCommittee']);
+
 //Manage Bulletin
 //Menu
 Route::resource("/bulletin", bulletinController::class);

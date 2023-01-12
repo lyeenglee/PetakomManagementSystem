@@ -109,20 +109,17 @@ class ElectionController extends Controller
 
     public function deanMenu()
     {
-        $electionList = Election::all();
-        return view('ManageElection.election_menu_dean')->with('electionList', $electionList);
+        return $this->retrieveCommitteeData('ManageElection.election_menu_dean');
     }
 
     public function hodMenu()
     {
-        $electionList = Election::all();
-        return view('ManageElection.election_menu_hod')->with('electionList', $electionList);
+        return $this->retrieveCommitteeData('ManageElection.election_menu_hod');
     }
 
     public function lecturerMenu()
     {
-        $electionList = Election::all();
-        return view('ManageElection.election_menu_lecturer')->with('electionList', $electionList);
+        return $this->retrieveCommitteeData('ManageElection.election_menu_lecturer');
     }
 
     public function studentMenu()
@@ -264,17 +261,7 @@ class ElectionController extends Controller
 
     public function studentViewCommitteeMenu()
     {
-        //retrieve the commitee elected
-        $comitteeList = DB::table('elections')->where('positionStatus', 1)->get();
-
-        //set the Majlis Tertinggi committee into list
-        $comitteeListMT = $comitteeList->where('category', "Majlis Tertinggi");
-        //retrieve the Majlis Eksekutif committee into list
-        $comitteeListME = $comitteeList->where('category', "Majlis Eksekutif");
-
-        return view('ManageElection.student_view_committee_menu')
-            ->with('comitteeListMT', $comitteeListMT)
-            ->with('comitteeListME', $comitteeListME);
+        return $this->retrieveCommitteeData('ManageElection.student_view_committee_menu');
     }
 
     public function studentViewCandidate($electionID)
@@ -288,7 +275,36 @@ class ElectionController extends Controller
         $selectedElectionID= Election::find($electionID);
         return view('ManageElection.student_view_committee')->with('electionID', $selectedElectionID);
     }
+
+    public function retrieveCommitteeData($url){
+        //retrieve the commitee elected
+        $comitteeList = DB::table('elections')->where('positionStatus', 1)->get();
+
+        //set the Majlis Tertinggi committee into list
+        $comitteeListMT = $comitteeList->where('category', "Majlis Tertinggi");
+        //retrieve the Majlis Eksekutif committee into list
+        $comitteeListME = $comitteeList->where('category', "Majlis Eksekutif");
+
+        return view($url)
+            ->with('comitteeListMT', $comitteeListMT)
+            ->with('comitteeListME', $comitteeListME);
+    }
     
+    public function deanViewCommittee($electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+        return view('ManageElection.dean_view_committee')->with('electionID', $selectedElectionID);
+    }
 
+    public function hodViewCommittee($electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+        return view('ManageElection.hod_view_committee')->with('electionID', $selectedElectionID);
+    }
 
+    public function lecturerViewCommittee($electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+        return view('ManageElection.lecturer_view_committee')->with('electionID', $selectedElectionID);
+    }
 }
