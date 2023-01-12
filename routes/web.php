@@ -108,7 +108,7 @@ Route::patch('/coordinator/election/edit/{id}', [ElectionController::class, 'coo
 
 //Election- Student
 Route::get('/student/election/studentViewCandidateMenu', [ElectionController::class, 'studentViewCandidateMenu']);
-Route::get('/student/election/studentVoteCandidateMenu', [ElectionController::class, 'studentVoteCandidate']);
+Route::get('/student/election/studentVoteCandidate', [ElectionController::class, 'studentVoteCandidate']);
 Route::get('/student/election/studentViewCommitteeMenu', [ElectionController::class, 'studentViewCommitteeMenu']);
 Route::get('/student/election/viewCandidate/{id}', [ElectionController::class, 'studentViewCandidate']);
 Route::get('/student/election/viewCommittee/{id}', [ElectionController::class, 'studentViewCommittee']);
