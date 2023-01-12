@@ -46,8 +46,8 @@
                             @foreach($bulletins as $item)
                                 <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->activityName }}</td>
-                                <td>{{ $item->activityStatus }}</td>
+                                <td>{{ $item->bulletinTitle }}</td>
+                                <td>{{ $item->bulletinDate }}</td>
                                 <td >   
                                     <a href="{{ url('/activity/' . $item->activityID) }}" title="View Activity"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                     <a href="{{ url('/activity/' . $item->activityID . '/edit') }}" title="Edit Activity"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>

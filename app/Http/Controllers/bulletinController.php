@@ -38,8 +38,14 @@ class bulletinController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $input = new Activity();
+        $input = new bulletin();
+        //Request input from POST
+        $input->bulletinTitle = $request->bulletinTitle;
+        $input->bulletinDescription = $request->bulletinDescription;
+        $input->bulletinDate = $request->bulletinDate;
+
+        $input->save();
+        return redirect('bulletin')->with('flash_message', 'Bulletin Addedd!');
     }
 
     /**
