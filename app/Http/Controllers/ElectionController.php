@@ -154,7 +154,7 @@ class ElectionController extends Controller
         $input->filePath = $filename;
         $input->save();
 
-        return redirect('/committee/election/menu')->with('flash_message', 'Candidate Addedd!');
+        return redirect('/committee/election/menu');
     }
     
     public function committeeViewCandidate($electionID)
@@ -208,7 +208,7 @@ class ElectionController extends Controller
         $selectedElectionID->rejectReason = null;
 
         $selectedElectionID->save();
-        return redirect('/committee/election/menu')->with('flash_message', 'Candidate Updated!');
+        return redirect('/committee/election/menu');
     }
 
     public function committeeRemoveCandidateDetails($electionID){
@@ -219,7 +219,7 @@ class ElectionController extends Controller
         $this->removeImage($selectedElectionID->filePath);
 
         $selectedElectionID->delete();
-        return redirect('/committee/election/menu')->with('flash_message', 'Candidate Deleted!');
+        return redirect('/committee/election/menu');
     }
 
     public function coordinatorApproveCandidate($electionID)
@@ -245,7 +245,7 @@ class ElectionController extends Controller
         }
 
         $selectedElectionID->save();
-        return redirect('/coordinator/election/menu')->with('flash_message', 'Candidate Approved Status Updated!');
+        return redirect('/coordinator/election/menu');
     }
 
     public function studentViewCandidateMenu()
@@ -259,15 +259,36 @@ class ElectionController extends Controller
     {
         //retrieve approved candidate
         $approvedList = DB::table('elections')->where('approveStatus', 1)->get();
-        return view('ManageElection.student_view_candidate_menu')->with('candidateList', $approvedList);
+        return view('ManageElection.student_vote_candidate')->with('candidateList', $approvedList);
     }
 
-    public function studentViewCoordinatoreMenu()
+    public function studentViewCommitteeMenu()
     {
         //retrieve the commitee elected
         $comitteeList = DB::table('elections')->where('positionStatus', 1)->get();
-        return view('ManageElection.student_view_candidate_menu')->with('comitteeList', $comitteeList);
+
+        //set the Majlis Tertinggi committee into list
+        $comitteeListMT = $comitteeList->where('category', "Majlis Tertinggi");
+        //retrieve the Majlis Eksekutif committee into list
+        $comitteeListME = $comitteeList->where('category', "Majlis Eksekutif");
+
+        return view('ManageElection.student_view_committee_menu')
+            ->with('comitteeListMT', $comitteeListMT)
+            ->with('comitteeListME', $comitteeListME);
     }
+
+    public function studentViewCandidate($electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+        return view('ManageElection.student_view_candidate')->with('electionID', $selectedElectionID);
+    }
+    
+    public function studentViewCommittee($electionID)
+    {
+        $selectedElectionID= Election::find($electionID);
+        return view('ManageElection.student_view_committee')->with('electionID', $selectedElectionID);
+    }
+    
 
 
 }

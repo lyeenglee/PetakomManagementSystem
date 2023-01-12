@@ -11,7 +11,7 @@
             <!-- display all Majlis Tertinggi committee here-->
             <h3 style="font-weight: bold;">Majlis Tertinggi</h3>
             @foreach($comitteeListMT as $item)
-            <div class="card" onclick="location.href='{{ url('/student/election/viewCandidate/' . $item->electionID) }}'">
+            <div class="card" onclick="location.href='{{ url('/student/election/viewCommittee/' . $item->electionID) }}'">
                 
                 <div class="card-body">
                     <div class="table-responsive">
@@ -39,7 +39,7 @@
             <!-- display all Majlis Eksekutif committee here-->
             <h3 style="font-weight: bold;">Majlis Eksekutif</h3>
             @foreach($comitteeListME as $item)
-            <div class="card" onclick="location.href='{{ url('/student/election/viewCandidate/' . $item->electionID) }}'">
+            <div class="card" onclick="location.href='{{ url('/student/election/viewCommittee/' . $item->electionID) }}'">
                 
                 <div class="card-body">
                     <div class="table-responsive">
