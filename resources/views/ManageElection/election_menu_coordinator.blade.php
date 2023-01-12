@@ -33,7 +33,7 @@
                             </thead>
                             <tbody>
                             @foreach($electionList as $item)
-                                <tr>
+                              <tr>
                                 <!-- display all unapprove candidate here-->
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->name}}</td>
@@ -41,7 +41,7 @@
                                 <td >   
                                     <a href="{{ url('/coordinator/election/approveCandidate/' . $item->electionID) }}" title="Approve election"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Approve</button></a>
                                 </td>
-                            </tr>
+                              </tr>
                             @endforeach
                             </tbody>
                         </table>
