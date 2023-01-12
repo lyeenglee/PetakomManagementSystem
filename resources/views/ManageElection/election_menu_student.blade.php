@@ -27,7 +27,7 @@
             </div>
             <br/>
             <!-- Vote Candidate Card -->
-            <div class="card" onclick="location.href='/student/election/studentVoteCandidateMenu'">
+            <div class="card" onclick="location.href='/student/election/studentVoteCandidate'">
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-borderless" id="electionTable">
