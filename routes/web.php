@@ -128,3 +128,20 @@ Route::get('/dean/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 
 Route::get('/hod/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'hodMenu']);
 Route::get('/lecturer/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'lecturerMenu']);
 Route::get('/student/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'studentMenu']);
+
+//Manage Calendar
+//Menu
+Route::resource("/calendar", CalendarController::class);
+Route::get('/coordinator/calendar/menu', [CalendarController::class, 'coordinatorMenu']);
+Route::get('/committee/calendar/menu', [CalendarController::class, 'committeeMenu']);
+Route::get('/hod/calendar/menu', [CalendarController::class, 'hodCalendar']);
+Route::get('/student/calendar/menu', [CalendarController::class, 'studentMenu']);
+Route::get('/lecturer/calendar/menu', [CalendarController::class, 'lecturerMenu']);
+
+
+//View Activity In Calendar
+Route::get('/coordinator/calendar/menu/viewActivityDetail/{id}', [CalendarController::class, 'coordinatorMenu']);
+Route::get('/committee/calendar/menu/viewActivityDetail/{id}', [CalendarController::class, 'committeeMenu']);
+Route::get('/hod/calendar/menu/viewActivityDetail/{id}', [CalendarController::class, 'hodMenu']);
+Route::get('/student/menu/viewActivityDetail/{id}', [CalendarController::class, 'studentMenu']);
+Route::get('/lecturer/menu/viewActivityDetail/{id}', [CalendarController::class, 'lecturerMenu']);
