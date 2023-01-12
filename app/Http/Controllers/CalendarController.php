@@ -18,10 +18,10 @@ class CalendarController extends Controller
     {
         //
         $calendar = Calendar::all();
-        return view('ManageCalendar.calendar')->with('calendars', $calendar);;
+        return view('ManageCalendar.calendar')->with('calendar', $calendar);;
 
         $calendar = User::get();
-        return view('calendars',compact('calendars'));
+        return view('calendar',compact('calendar'));
     }
 
     /**
@@ -34,7 +34,7 @@ class CalendarController extends Controller
     {
         //
         $calendar = Calendar::find($id);
-        return view('ManageCalendar.view_date_activity')->with('calendars', $calendar);
+        return view('ManageCalendar.view_date_activity')->with('calendar', $calendar);
 
      
     }
@@ -43,6 +43,6 @@ class CalendarController extends Controller
     public function downloadActivityDet()
     {
         $calendar = Calendar::all();
-        return view('ManageCalendar.view_date_activity')->with('calendars', $calendar);
+        return view('ManageCalendar.view_date_activity')->with('calendar', $calendar);
     }
 }
