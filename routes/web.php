@@ -3,6 +3,8 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ProposalController;
+use App\Http\Controllers\ElectionController;
+use App\Http\Controllers\bulletinController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -82,3 +84,46 @@ Route::get('/dean/approve', [App\Http\Controllers\ProposalController::class, 'de
 //Toggle Button for Status
 Route::get('users', 'ProposalController@index');
 Route::get('changeStatus', 'ProposalController@changeStatus');
+
+//Manage Elections
+//Menu
+Route::get('/committee/election/menu', [ElectionController::class, 'committeeMenu']);
+Route::get('/coordinator/election/menu', [ElectionController::class, 'coordinatorMenu']);
+Route::get('/dean/election/menu', [ElectionController::class, 'deanMenu']);
+Route::get('/hod/election/menu', [ElectionController::class, 'hodMenu']);
+Route::get('/lecturer/election/menu', [ElectionController::class, 'lecturerMenu']);
+Route::get('/student/election/menu', [ElectionController::class, 'studentMenu']);
+
+//Election- Committee
+Route::get('/committee/election/addCandidate', [ElectionController::class, 'committeeAddCandidate']);
+Route::post('/committee/election/menu', [ElectionController::class, 'committeeStoreCandidate']);
+Route::get('/committee/election/viewCandidate/{id}', [ElectionController::class, 'committeeViewCandidate']);
+Route::get('/committee/election/editCandidate/{id}', [ElectionController::class, 'committeeEditCandidate']);
+Route::patch('/committee/election/edit/{id}', [ElectionController::class, 'committeeEditCandidateDetails']);
+Route::delete('/committee/election/delete/{id}', [ElectionController::class, 'committeeRemoveCandidateDetails']);
+
+//Election- Coordinator
+Route::get('/coordinator/election/approveCandidate/{id}', [ElectionController::class, 'coordinatorApproveCandidate']);
+Route::patch('/coordinator/election/edit/{id}', [ElectionController::class, 'coordinatorApproveCandidateDetails']);
+
+//Election- Student
+Route::get('/student/election/studentViewCandidateMenu', [ElectionController::class, 'studentViewCandidateMenu']);
+Route::get('/student/election/studentVoteCandidateMenu', [ElectionController::class, 'studentVoteCandidateMenu']);
+Route::get('/student/election/studentViewCoordinatoreMenu', [ElectionController::class, 'studentViewCoordinatoreMenu']);
+
+
+//Manage Bulletin
+//Menu
+Route::resource("/bulletin", ActivityController::class);
+Route::get('/coordinator/bulletin/menu', [bulletinController::class, 'coordinatorMenu']);
+Route::get('/dean/bulletin/menu', [bulletinController::class, 'deanMenu']);
+Route::get('/hod/bulletin/menu', [bulletinController::class, 'hodMenu']);
+Route::get('/lecturer/bulletin/menu', [bulletinController::class, 'lecturerMenu']);
+Route::get('/student/bulletin/menu', [bulletinController::class, 'studentMenu']);
+
+//View Bulletin
+Route::get('/coordinator/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'coordinatorMenu']);
+Route::get('/dean/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'deanMenu']);
+Route::get('/hod/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'hodMenu']);
+Route::get('/lecturer/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'lecturerMenu']);
+Route::get('/student/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'studentMenu']);
