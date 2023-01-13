@@ -79,9 +79,14 @@ class bulletinController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $bulletinID)
     {
         //
+        $bulletin = bulletin::find($bulletinID);
+        $input = $request->all();
+        $bulletin->update($input);
+
+        return redirect('bulletin')->with('success', 'Bulletin Updated!'); 
     }
 
     /**

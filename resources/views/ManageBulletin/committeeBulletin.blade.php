@@ -50,7 +50,7 @@
                                 <td>{{ $item->bulletinTitle }}</td>
                                 <td>{{ $item->bulletinDate }}</td>
                                 <td >   
-                                    <a href="{{ url('/activity/' . $item->bulletinID) }}" title="View Activity"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                    <a href="{{ url('/bulletin/' . $item->bulletinID) }}" title="View Activity"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                     <a href="{{ url('/bulletin/' . $item->bulletinID . '/edit') }}" title="Edit Bulletin"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
                                     
                                     <form method="POST" action="{{ url('/bulletin' . '/' . $item->bulletinID) }}" accept-charset="UTF-8" style="display:inline">
