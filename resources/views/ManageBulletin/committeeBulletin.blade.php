@@ -5,7 +5,8 @@
 <div class="container">
     <div class="row justify-content-center">
         
-        <div class="col-md-8"> 
+        <div class="col-md-8">
+        @include('flash-message')
         <h3 style="text-align:center;font-weight: bold;">BULLETIN</h3><br>
             <div class="input-group rounded">
                 <input type="search" id="bulletinInput" class="form-control rounded" onkeyup="activitySearchFunction()" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
@@ -49,10 +50,10 @@
                                 <td>{{ $item->bulletinTitle }}</td>
                                 <td>{{ $item->bulletinDate }}</td>
                                 <td >   
-                                    <a href="{{ url('/activity/' . $item->activityID) }}" title="View Activity"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                    <a href="{{ url('/activity/' . $item->activityID . '/edit') }}" title="Edit Activity"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
+                                    <a href="{{ url('/activity/' . $item->bulletinID) }}" title="View Activity"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                    <a href="{{ url('/bulletin/' . $item->bulletinID . '/edit') }}" title="Edit Bulletin"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
                                     
-                                    <form method="POST" action="{{ url('/activity' . '/' . $item->activityID) }}" accept-charset="UTF-8" style="display:inline">
+                                    <form method="POST" action="{{ url('/bulletin' . '/' . $item->bulletinID) }}" accept-charset="UTF-8" style="display:inline">
                                     {{ csrf_field() }}    
                                     {{ method_field('DELETE') }}
                                         <button type="submit" class="btn btn-danger pull-right" title="Delete" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
@@ -146,5 +147,8 @@ function sortActivityTable(n) {
   }
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
 @endsection

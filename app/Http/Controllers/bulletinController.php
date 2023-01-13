@@ -45,7 +45,7 @@ class bulletinController extends Controller
         $input->bulletinDate = $request->bulletinDate;
 
         $input->save();
-        return redirect('bulletin')->with('flash_message', 'Bulletin Addedd!');
+        return redirect('bulletin')->with('success', 'Bulletin Created!');;
     }
 
     /**
@@ -65,9 +65,11 @@ class bulletinController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($bulletinID)
     {
-        //
+        //POST bulleitnID to edit page
+        $bulletin = bulletin::find($bulletinID);
+        return view('ManageBulletin.editBulletin')->with('bulletins', $bulletin);
     }
 
     /**
@@ -88,9 +90,11 @@ class bulletinController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($bulletinID)
     {
         //
+        bulletin::destroy($bulletinID);
+        return redirect('bulletin')->with('success', 'Bulletin Deleted!');
     }
 
     //Route
