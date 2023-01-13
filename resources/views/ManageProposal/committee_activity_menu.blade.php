@@ -46,7 +46,7 @@
                                 <td>{{ $item->date }}</td>
                                 <td >   
                                     <a href="{{ url('/proposal/' . $item->proposalID) }}" title="View Proposal"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                    <a href="{{ url('/committee/download') }}" title="Download Report"><button class="btn btn-danger pull-right"><i class="fa fa-trash-o" aria-hidden="true"></i> Status</button></a> 
+                                    <a href="{{ url('/committee/viewStatus') }}" title="View Status"><button class="btn btn-danger pull-right"><i class="fa fa-trash-o" aria-hidden="true"></i> Status</button></a> 
                                     <a href="{{ url('/committee/download') }}" title="Download Report"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Download</button></a>
                       
                                 </td>

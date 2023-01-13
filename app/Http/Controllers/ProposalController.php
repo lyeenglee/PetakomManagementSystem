@@ -112,9 +112,9 @@ class ProposalController extends Controller
         return view('ManageProposal.committee_add_proposal')->with('proposals', $proposal);
     }
 
-    public function viewStatus($proposalID)
+    public function viewStatus()
     {
-        $proposal = Proposal::all($proposalID);
+        $proposal = Proposal::all();
         return view('ManageProposal.committee_view_Status')->with('proposals', $proposal);
     }
 
