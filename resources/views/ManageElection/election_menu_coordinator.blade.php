@@ -7,7 +7,8 @@
     <div class="row justify-content-center">
         
         <div class="col-md-8"> 
-        <h3 style="text-align:center;font-weight: bold;">Candidate Management</h3><br>
+        @include('flash-message')
+        <h3 style="text-align:center;font-weight: bold;">Candidate Management</h3><br/>
             <div class="card">
                 <div class="card-header">{{ __('Candidates List') }}</div>
                 <br>
