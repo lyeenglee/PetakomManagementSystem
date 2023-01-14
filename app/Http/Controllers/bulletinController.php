@@ -54,9 +54,11 @@ class bulletinController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($bulletinID)
     {
-        //
+        //Read bulletin and show for View
+        $bulletin= bulletin::find($bulletinID);
+        return view('ManageBulletin.viewBulletin')->with('bulletins', $bulletin);
     }
 
     /**
@@ -81,7 +83,7 @@ class bulletinController extends Controller
      */
     public function update(Request $request, $bulletinID)
     {
-        //
+        //Request and post new data to update in db
         $bulletin = bulletin::find($bulletinID);
         $input = $request->all();
         $bulletin->update($input);
@@ -97,7 +99,7 @@ class bulletinController extends Controller
      */
     public function destroy($bulletinID)
     {
-        //
+        //Delete bulletin by id
         bulletin::destroy($bulletinID);
         return redirect('bulletin')->with('success', 'Bulletin Deleted!');
     }
@@ -112,30 +114,30 @@ class bulletinController extends Controller
     public function coordinatorMenu()
     {
         $bulletin = bulletin::all();
-        return view('ManageBulletin.Bulletin')->with('bulletins', $bulletin);
+        return view('ManageBulletin.coordinatorViewBulletin')->with('bulletins', $bulletin);
     }
     
     public function deanMenu()
     {
         $bulletin = bulletin::all();
-        return view('ManageBulletin.Bulletin')->with('bulletins', $bulletin);
+        return view('ManageBulletin.deanViewBulletin')->with('bulletins', $bulletin);
     }
 
     public function hodMenu()
     {
         $bulletin = bulletin::all();
-        return view('ManageBulletin.Bulletin')->with('bulletins', $bulletin);
+        return view('ManageBulletin.hodViewBulletin')->with('bulletins', $bulletin);
     }
 
     public function lecturerMenu()
     {
         $bulletin = bulletin::all();
-        return view('ManageBulletin.Bulletin')->with('bulletins', $bulletin);
+        return view('ManageBulletin.lecturerViewBulletin')->with('bulletins', $bulletin);
     }
 
     public function studentMenu()
     {
         $bulletin = bulletin::all();
-        return view('ManageBulletin.Bulletin')->with('bulletins', $bulletin);
+        return view('ManageBulletin.studentViewBulletin')->with('bulletins', $bulletin);
     }
 }

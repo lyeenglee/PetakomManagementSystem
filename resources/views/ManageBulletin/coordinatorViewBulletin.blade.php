@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-        <h3 style="text-align:center;font-weight: bold;">BULLETIN (COMMITTEE)</h3><br>
+        <h3 style="text-align:center;font-weight: bold;">BULLETIN (COORDINATOR)</h3><br>
             <div class="input-group rounded">
                 <input type="search" id="bulletinInput" class="form-control rounded" onkeyup="activitySearchFunction()" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                 <span class="input-group-text border-0" id="search-addon">
@@ -49,12 +49,6 @@
                                 <td>{{ $item->bulletinDate }}</td>
                                 <td >   
                                     <a href="{{ url('/bulletin/' . $item->bulletinID) }}" target="_blank" title="View Activity"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                    <a href="{{ url('/bulletin/' . $item->bulletinID . '/edit') }}" title="Edit Bulletin"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
-                                    
-                                    <form method="POST" action="{{ url('/bulletin' . '/' . $item->bulletinID) }}" accept-charset="UTF-8" style="display:inline">
-                                    {{ csrf_field() }}    
-                                    {{ method_field('DELETE') }}
-                                        <button type="submit" class="btn btn-danger pull-right" title="Delete" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                     </form>                             
                                 </td>
                             </tr>

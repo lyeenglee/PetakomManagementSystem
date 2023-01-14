@@ -133,13 +133,6 @@ Route::get('/hod/bulletin/menu', [bulletinController::class, 'hodMenu']);
 Route::get('/lecturer/bulletin/menu', [bulletinController::class, 'lecturerMenu']);
 Route::get('/student/bulletin/menu', [bulletinController::class, 'studentMenu']);
 
-//View Bulletin
-Route::get('/coordinator/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'coordinatorMenu']);
-Route::get('/dean/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'deanMenu']);
-Route::get('/hod/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'hodMenu']);
-Route::get('/lecturer/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'lecturerMenu']);
-Route::get('/student/bulletin/menu/viewBulletin/{id}', [bulletinController::class, 'studentMenu']);
-
 //Manage Calendar
 //Menu
 Route::resource("/calendar", CalendarController::class);
