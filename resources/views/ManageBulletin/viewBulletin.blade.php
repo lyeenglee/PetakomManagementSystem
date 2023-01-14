@@ -11,15 +11,15 @@
                         @csrf
                         <input  type="hidden" name="id" id="id" value="{{$bulletins->id}}" id="id" />
                         <div class="row mb-3">
-                            <label for="bulletinTitle" class="col-md-4 col-form-label">{{_('TITLE :') }}  {{$bulletins->bulletinTitle}}</label>
+                            <label for="bulletinTitle" class="col-md-12 col-form-label">{{_('TITLE :') }}  {{$bulletins->bulletinTitle}}</label>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="bulletinDescription" class="col-md-4 col-form-label">{{_('DESCRIPTION') }}<br>{{$bulletins->bulletinDescription}}</label>       
+                            <label for="bulletinDescription" class="col-md-12 col-form-label">{{_('DESCRIPTION') }}<br>{{$bulletins->bulletinDescription}}</label>       
                         </div>
 
                         <div class="row mb-3">
-                            <label for="bulletinDate" class="col-md-3 col-form-label ">{{_('DATE')}}<br>{{$bulletins->bulletinDate}}</label>
+                            <label for="bulletinDate" class="col-md-5 col-form-label ">{{_('DATE')}}<br>{{$bulletins->bulletinDate}}</label>
                         </div>
                     </form>
                 </div>
