@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.coordinatornav')
 
 @section('content')
 <title>Calendar</title>
@@ -18,7 +18,7 @@
             <br>
             <div id="calendar"></div>
             <head>
-    <title>How to Use Fullcalendar in Laravel 8</title>
+    
     
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
