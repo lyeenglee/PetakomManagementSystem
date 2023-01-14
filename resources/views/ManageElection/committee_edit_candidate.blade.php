@@ -1,4 +1,4 @@
-@extends('layouts.committeenav')
+@extends('layouts.app')
 
 @section('content')
 
