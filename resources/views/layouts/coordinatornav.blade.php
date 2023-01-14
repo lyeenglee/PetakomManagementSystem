@@ -414,7 +414,7 @@
                                         Dashboard Example 1
                                     </a>
                                 </li>
-                                <li class="app-sidebar__heading">Manage Activity</li>
+                                <li class="app-sidebar__heading">Activity</li>
                                 <!-- <li>
                                     <a href="#">
                                         <i class="metismenu-icon pe-7s-diamond"></i>
@@ -552,7 +552,7 @@
                                 <li>
                                     <a href="{{ url('/coordinator/activity/menu/') }}">
                                         <i class="metismenu-icon pe-7s-display2"></i>
-                                        Coordinator Activity Menu
+                                        Coordinator Activity
                                     </a>
                                 </li>
 
