@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.coordinatornav')
 
 @section('content')
 <title>Activity Management</title>

@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.committeenav')
 
 @section('content')
 <title>Activity Management</title>
 <div class="container">
     <div class="row justify-content-center">
         
-        <div class="col-md-8"> 
+        <div class="col-md-9"> 
         <h3 style="text-align:center;font-weight: bold;">Activity Management</h3><br>
             <div class="input-group rounded">
                 <input type="search" id="activityInput" class="form-control rounded" onkeyup="activitySearchFunction()" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
