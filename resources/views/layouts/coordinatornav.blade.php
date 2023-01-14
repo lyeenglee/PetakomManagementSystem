@@ -561,11 +561,11 @@
 
                                 <li class="app-sidebar__heading">Calendar</li>
                                 <li>
-                                    <a href="dashboard-boxes.html">
+                                    <a href="{{ url('/coordinator/calendar/menu') }}">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Coordinator Calendar
                                     </a>
-                                </li>
+                                </li>
                                 <li class="app-sidebar__heading">Forms</li>
                                 <li>
                                     <a href="forms-controls.html">

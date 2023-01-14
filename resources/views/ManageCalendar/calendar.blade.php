@@ -1,6 +1,9 @@
-@extends('layouts.app')
 @section('content')
 @extends('layouts.coordinatornav')
+@extends('layouts.HODnav')
+@extends('layouts.lecturernav')
+@extends('layouts.studentnav')
+@extends('layouts.committeenav')
 
 
 <title>Calendar</title>
