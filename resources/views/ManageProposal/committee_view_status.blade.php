@@ -64,7 +64,7 @@
               <br>
         <div class="text-center">
           
-        <a href="{{ url('/committee/activity/menu') }}" class="col-2 btn btn-success" title="Committee Menu">Committee</a>
+        <a href="{{ url('/committee/proposal/menu') }}" class="col-2 btn btn-success" title="Committee Menu">Committee</a>
 
         </div>
 

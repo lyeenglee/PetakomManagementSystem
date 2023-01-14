@@ -63,9 +63,9 @@ Route::get('/viewActivity/{id}/studentView',[App\http\controllers\ActivityContro
 Route::resource("/proposal", ProposalController::class);
 
 //actor activity menu
-Route::get('/committee/activity/menu', [App\Http\Controllers\ProposalController::class, 'committeeMenu'])->name('committee_activity_menu');
-Route::get('/coordinator/activity/menu', [App\Http\Controllers\ProposalController::class, 'coordinatorMenu'])->name('coordinator_activity_menu');
-Route::get('/dean/activity/menu', [App\Http\Controllers\ProposalController::class, 'deanMenu'])->name('dean_activity_menu');
+Route::get('/committee/proposal/menu', [App\Http\Controllers\ProposalController::class, 'committeeMenu'])->name('committee_activity_menu');
+Route::get('/coordinator/proposal/menu', [App\Http\Controllers\ProposalController::class, 'coordinatorMenu'])->name('coordinator_activity_menu');
+Route::get('/dean/proposal/menu', [App\Http\Controllers\ProposalController::class, 'deanMenu'])->name('dean_activity_menu');
 
 //proposal looping
 Route::get('/viewProposal/{proposalID}',[App\http\controllers\ProposalController::class,'coordinatorView'])->name('proposals.coordinatorView');

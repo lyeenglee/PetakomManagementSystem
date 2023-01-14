@@ -46,7 +46,7 @@ class ProposalController extends Controller
         //
         $input = $request->all();
         Proposal::create($input);
-        return redirect('/committee/activity/menu')->with('flash_message', 'Proposal Submit Successfully!');
+        return redirect('/committee/proposal/menu')->with('flash_message', 'Proposal Submit Successfully!');
     }
 
     /**

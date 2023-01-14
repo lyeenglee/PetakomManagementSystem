@@ -61,7 +61,7 @@
               <br>
         <div class="text-center">
           
-              <a href="{{ url('/dean/activity/menu')  }}" class="col-2 btn btn-secondary" title="Dean Menu">Dean</a>
+              <a href="{{ url('/dean/proposal/menu')  }}" class="col-2 btn btn-secondary" title="Dean Menu">Dean</a>
 
         </div>
 
