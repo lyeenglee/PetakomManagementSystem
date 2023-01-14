@@ -28,8 +28,38 @@
                 </div>
             </div>
             <br/>
+
+            @php
+
+                $gotElectionOnGoing = false;
+
+                //set timezome to Malaysia time 
+                date_default_timezone_set("Asia/Kuala_Lumpur");
+
+                //if there is onging election
+                if(count($acitivityEndTimeList) != 0){
+
+                    //get election end time 
+                    foreach ($acitivityEndTimeList as $item) {
+                        $time = $item->endTime;
+                    }
+
+                    //if current time still got election 
+                    if(strtotime($time) > time()){
+                        $gotElectionOnGoing = true;
+                    }
+                }
+            @endphp
+
+
             <!-- Vote Candidate Card -->
-            <div class="card" onclick="location.href='/student/election/studentVoteCandidateMenu'">
+            <!-- If current time got election and user haven't vote -->
+            @if ($userID->vote_status == 0 && $gotElectionOnGoing == true)
+                <div class="card" onclick="location.href='/student/election/studentVoteCandidateMenu'">
+            @else
+                <!-- If current time does not have election or user haven't vote -->
+                <div class="card" style="opacity: 0.5;">
+            @endif  
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-borderless" id="electionTable">
