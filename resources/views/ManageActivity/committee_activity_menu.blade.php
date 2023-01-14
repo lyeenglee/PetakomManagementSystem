@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         
-        <div class="col-md-9"> 
+        <div class="col-md-10"> 
         <h3 style="text-align:center;font-weight: bold;">Activity Management</h3><br>
             <div class="input-group rounded">
                 <input type="search" id="activityInput" class="form-control rounded" onkeyup="activitySearchFunction()" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
@@ -25,7 +25,7 @@
                             <thead>
                                 <tr>
                                 <th onclick='sortActivityTable(0)'>#</th>
-                                <th class="col-6" onclick='sortActivityTable(1)'>Name
+                                <th class="col-5" onclick='sortActivityTable(1)'>Name
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
                                         <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
                                     </svg>
@@ -35,7 +35,7 @@
                                         <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
                                     </svg>
                                 </th>
-                                <th class="col-4">Actions</th>
+                                <th class="col-5">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,13 +45,13 @@
                                 <td>{{ $item->activityName }}</td>
                                 <td>{{ $item->activityStatus }}</td>
                                 <td >   
-                                    <a href="{{ url('/activity/' . $item->activityID) }}" title="View Activity"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                    <a href="{{ url('/activity/' . $item->activityID . '/edit') }}" title="Edit Activity"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
+                                    <a href="{{ url('/activity/' . $item->activityID) }}" title="View Activity"><button class="col-3 btn btn-primary "><i class="fa fa-eye aria-hidden="true"></i> View</button></a>
+                                    <a href="{{ url('/activity/' . $item->activityID . '/edit') }}" title="Edit Activity"><button class="col-4 btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
                                     
                                     <form method="POST" action="{{ url('/activity' . '/' . $item->activityID) }}" accept-charset="UTF-8" style="display:inline">
                                     {{ csrf_field() }}    
                                     {{ method_field('DELETE') }}
-                                        <button type="submit" class="btn btn-danger pull-right" title="Delete" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                        <button type="submit" class="col-4 btn btn-danger pull-right" title="Delete" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                     </form>                             
                                 </td>
                             </tr>
@@ -67,13 +67,13 @@
                 </div>
             </div>
             <br>
-            <div class="text-center">
+            <!-- <div class="text-center">
               <a href="{{ url('/coordinator/activity/menu/') }}" class="col-2 btn btn-primary" title="Coordinator Menu">Coordinator</a>
               <a href="{{ url('/dean/activity/menu')  }}" class="col-2 btn btn-secondary" title="Dean Menu">Dean</a>
               <a href="{{ url('/HOD/activity/menu') }}" class="col-2 btn btn-success" title="HOD Menu">HOD</a>
               <a href="{{ url('/lecturer/activity/menu') }}" class="col-2 btn btn-danger" title="Lecturer Menu">Lecturer</a>
               <a href="{{ url('/student/activity/menu')  }}" class="col-2 btn btn-warning" title="Student Menu">Student</a>
-            </div>
+            </div> -->
             
         </div>
     </div>
@@ -154,5 +154,7 @@ function sortActivityTable(n) {
   }
 }
 </script>
-
+<link 
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>
 @endsection

@@ -552,7 +552,7 @@
                                 <li>
                                     <a href="{{ url('/coordinator/activity/menu/') }}">
                                         <i class="metismenu-icon pe-7s-display2"></i>
-                                        Activity Menu
+                                        Coordinator Activity Menu
                                     </a>
                                 </li>
 

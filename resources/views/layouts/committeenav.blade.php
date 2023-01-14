@@ -419,7 +419,7 @@
                                 <li>
                                     <a href="{{ url('/activity') }}">
                                         <i class="metismenu-icon pe-7s-display2"></i>
-                                        Activity Menu
+                                        Committee Activity Menu
                                     </a>
                                 </li>
 

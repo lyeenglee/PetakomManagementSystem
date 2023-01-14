@@ -23,7 +23,7 @@
                         
                         <div class="col">
                             <div class="text-end">
-                                <a href="{{ url('/coordinator/activity/menu/') }}" class="col-2 btn btn-secondary pull-right" title="Add New Student">Back</a>
+                                <a href="{{ url('/student/activity/menu/') }}" class="col-2 btn btn-secondary pull-right" title="Add New Student">Back</a>
                             </div>
                         </div> 
 

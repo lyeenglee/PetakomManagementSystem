@@ -417,9 +417,9 @@
                                 <li class="app-sidebar__heading">Manage Activity</li>
 
                                 <li>
-                                    <a href="{{ url('/activity') }}">
+                                    <a href="{{ url('/student/activity/menu') }}">
                                         <i class="metismenu-icon pe-7s-display2"></i>
-                                        Activity Menu
+                                        Student Activity Menu
                                     </a>
                                 </li>
 
