@@ -1,10 +1,10 @@
-@include('flash-message')
-@section('content')
 @extends('layouts.committeenav')
+@section('content')
 <title>BULLETIN</title>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
+        @include('flash-message')
         <h3 style="text-align:center;font-weight: bold;">BULLETIN (COMMITTEE)</h3><br>
             <div class="input-group rounded">
                 <input type="search" id="bulletinInput" class="form-control rounded" onkeyup="activitySearchFunction()" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
