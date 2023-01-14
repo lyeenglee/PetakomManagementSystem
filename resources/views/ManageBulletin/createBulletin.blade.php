@@ -34,9 +34,9 @@
                         </div>
                         
                         <div class="col">
-                            <div class="text-end">
-                                <button class="col-2 btn btn-success pull-right" type="submit">Add New</button>
+                            <div class="text-end"><br>
                                 <a href="{{ url('/bulletin') }}" class="col-2 btn btn-secondary pull-right">Cancel</a>
+                                <button class="col-2 btn btn-success pull-right" type="submit">Add New</button>
                             </div>
                         </div>    
                     </form>
