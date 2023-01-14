@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.coordinatornav')
 
 @section('content')
 
 @section('title', 'Coordinator Candidate Management')
 <div class="container">
     <div class="row justify-content-center">
-        
         <div class="col-md-8"> 
         @include('flash-message')
         <h3 style="text-align:center;font-weight: bold;">Candidate Management</h3><br/>
