@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @include('flash-message')
 @section('content')
+@extends('layouts.committeenav')
 <title>BULLETIN</title>
 <div class="container">
     <div class="row justify-content-center">

@@ -456,12 +456,12 @@
                                         </i>ChartJS
                                     </a>
                                 </li>
-                                <li class="app-sidebar__heading">PRO Version</li>
+                                <li class="app-sidebar__heading">BULLETIN</li>
                                 <li>
-                                    <a href="https://dashboardpack.com/theme-details/architectui-dashboard-html-pro/" target="_blank">
+                                    <a href="/dean/bulletin/menu">
                                         <i class="metismenu-icon pe-7s-graph2">
                                         </i>
-                                        Upgrade to PRO
+                                        Dean Bulletin
                                     </a>
                                 </li>
                             </ul>
