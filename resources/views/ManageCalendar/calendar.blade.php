@@ -1,6 +1,8 @@
+@extends('layouts.app')
+@section('content')
 @extends('layouts.coordinatornav')
 
-@section('content')
+
 <title>Calendar</title>
 <div class="container">
     <div class="row justify-content-center">
