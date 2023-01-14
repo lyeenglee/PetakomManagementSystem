@@ -5,7 +5,7 @@
 @section('title', 'Committee Candidate Management')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8"> 
+        <div class="col-md-10"> 
         @include('flash-message')
         <h3 style="text-align:center;font-weight: bold;">Candidate Management</h3><br>
             <div class="card">
@@ -20,7 +20,7 @@
                                 <!-- sort function here -->
                                 <tr>
                                 <th onclick='sortCandidateTable(0)'>#</th>
-                                <th class="col-5" onclick='sortCandidateTable(1)'>Name
+                                <th class="col-4" onclick='sortCandidateTable(1)'>Name
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
                                         <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
                                     </svg>
@@ -30,7 +30,7 @@
                                         <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
                                     </svg>
                                 </th>
-                                <th class="col-4">Actions</th>
+                                <th class="col-5">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,14 +41,14 @@
                                 <td>{{ $item->name}}</td>
                                 <td>{{ $item->category}}</td>
                                 <td >   
-                                    <a href="{{ url('/committee/election/viewCandidate/' . $item->electionID) }}" title="View election"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                    <a href="{{ url('/committee/election/editCandidate/' . $item->electionID) }}" title="Edit election"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
+                                    <a href="{{ url('/committee/election/viewCandidate/' . $item->electionID) }}" title="View election"><button class="col-3 btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                    <a href="{{ url('/committee/election/editCandidate/' . $item->electionID) }}" title="Edit election"><button class="col-3 btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
                                     
                                     <form method="POST" action="{{ url('/committee/election/delete/'. $item->electionID) }}" accept-charset="UTF-8" style="display:inline">
                                         @csrf
                                         @method("DELETE")
                                         
-                                        <button type="submit" class="btn btn-danger pull-right" title="Delete" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                        <button type="submit" class="col-3 btn btn-danger" title="Delete" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                     </form>                             
                                 </td>
                             </tr>
@@ -99,7 +99,7 @@
                                         @csrf
                                         @method("DELETE")
                                         
-                                        <button type="submit" class="btn btn-danger pull-right" title="Delete" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                        <button type="submit" class="btn btn-danger" title="Delete" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                     </form>                             
                                 </td>
                             </tr>
