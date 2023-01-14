@@ -3,9 +3,11 @@
 @section('content')
 
 @section('title', 'Student Election Management')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8"> 
+        @include('flash-message')
         <h3 style="text-align:center;font-weight: bold;">Election Menu</h3><br>
 
             <!-- View Candidate Card -->

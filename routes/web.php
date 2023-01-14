@@ -93,7 +93,7 @@ Route::get('/coordinator/election/menu', [ElectionController::class, 'coordinato
 Route::get('/dean/election/menu', [ElectionController::class, 'deanMenu']);
 Route::get('/hod/election/menu', [ElectionController::class, 'hodMenu']);
 Route::get('/lecturer/election/menu', [ElectionController::class, 'lecturerMenu']);
-Route::get('/student/election/menu', [ElectionController::class, 'studentMenu']);
+Route::get('/student/election/menu', [ElectionController::class, 'studentMenu'])->name('vote_expired');;
 
 //Election- Committee
 Route::get('/committee/election/addCandidate', [ElectionController::class, 'committeeAddCandidate']);
