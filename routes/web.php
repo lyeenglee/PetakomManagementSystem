@@ -138,7 +138,7 @@ Route::get('/student/bulletin/menu', [bulletinController::class, 'studentMenu'])
 Route::resource("/calendar", CalendarController::class);
 Route::get('/coordinator/calendar/menu', [CalendarController::class, 'coordinatorMenu']);
 Route::get('/committee/calendar/menu', [CalendarController::class, 'committeeMenu']);
-Route::get('/hod/calendar/menu', [CalendarController::class, 'hodCalendar']);
+Route::get('/hod/calendar/menu', [CalendarController::class, 'hodMenu']);
 Route::get('/student/calendar/menu', [CalendarController::class, 'studentMenu']);
 Route::get('/lecturer/calendar/menu', [CalendarController::class, 'lecturerMenu']);
 

@@ -24,6 +24,8 @@ class CalendarController extends Controller
         return view('calendar',compact('calendar'));
     }
 
+
+
     /**
      * Display the specified resource.
      *
@@ -45,4 +47,35 @@ class CalendarController extends Controller
         $calendar = Calendar::all();
         return view('ManageCalendar.view_date_activity')->with('calendar', $calendar);
     }
+
+    public function coordinatorMenu()
+    {
+        $calendar = Calendar::all();
+        return view('ManageCalendar.calendar')->with('calendar', $calendar);
+    }
+
+    public function committeeMenu()
+    {
+        $calendar = Calendar::all();
+        return view('ManageCalendar.calendar')->with('calendar', $calendar);
+    }
+
+    public function lecturerMenu()
+    {
+        $calendar = Calendar::all();
+        return view('ManageCalendar.calendar')->with('calendar', $calendar);
+    }
+
+    public function hodMenu()
+    {
+        $calendar = Calendar::all();
+        return view('ManageCalendar.calendar')->with('calendar', $calendar);
+    }
+
+    public function studentMenu()
+    {
+        $calendar = Calendar::all();
+        return view('ManageCalendar.calendar')->with('calendar', $calendar);
+    }
+
 }
