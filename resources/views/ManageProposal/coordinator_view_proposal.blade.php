@@ -73,7 +73,7 @@
                         <br>
                         <div class="col">
                             <div class="text-end">
-                                <a href="{{ url('/proposal/') }}" class="col-2 btn btn-secondary pull-right" title="Home Page">Back</a>
+                                <a href="{{ url('/coordinator/proposal/menu') }}" class="col-2 btn btn-secondary pull-right" title="Home Page">Back</a>
                             </div>
                         </div>    
 

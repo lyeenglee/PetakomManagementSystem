@@ -430,28 +430,17 @@
                                 <li>
                                     <a href="{{ url('/committee/calendar/menu') }}">
                                         <i class="metismenu-icon pe-7s-display2"></i>
-                                        Committe Calendar
+                                        Committee Calendar
                                     </a>
                                 </li>
-                                <li class="app-sidebar__heading">Forms</li>
+                                <li class="app-sidebar__heading">Proposal</li>
                                 <li>
-                                    <a href="forms-controls.html">
+                                    <a href="{{ url('/committee/proposal/menu') }}">
                                         <i class="metismenu-icon pe-7s-mouse">
-                                        </i>Forms Controls
+                                        </i>Committee Proposal
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="forms-layouts.html">
-                                        <i class="metismenu-icon pe-7s-eyedropper">
-                                        </i>Forms Layouts
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="forms-validation.html">
-                                        <i class="metismenu-icon pe-7s-pendrive">
-                                        </i>Forms Validation
-                                    </a>
-                                </li>
+            
                                 <li class="app-sidebar__heading">ELECTION</li>
                                 <li>
                                     <a href="/committee/election/menu">

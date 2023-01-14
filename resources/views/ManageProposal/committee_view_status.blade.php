@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.committeenav')
 
 @section('content')
 <title>Proposals Submitted </title>
@@ -62,11 +62,7 @@
           </div>
         </div>
               <br>
-        <div class="text-center">
-          
-        <a href="{{ url('/committee/proposal/menu') }}" class="col-2 btn btn-success" title="Committee Menu">Committee</a>
 
-        </div>
 
           </div>
             </div>
