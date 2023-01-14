@@ -61,6 +61,13 @@
             </div>
             <br/>
             @endforeach
+
+            <!-- Back Btn Field -->
+            <div class="col">
+                <div class="text-center">
+                    <a href="{{ url('/student/election/menu') }}" class="col-2 btn btn-secondary">Back</a>
+                </div>
+            </div> 
         </div>
     </div>
 </div>

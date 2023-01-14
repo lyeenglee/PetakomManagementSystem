@@ -1,4 +1,4 @@
-@extends('layouts.coordinatornav')
+@extends('layouts.app')
 
 @section('content')
 

@@ -1,4 +1,4 @@
-@extends('layouts.HODnav')
+@extends('layouts.app')
 
 @section('content')
 
