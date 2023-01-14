@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.deannav')
 
 @section('content')
 <title>Proposals Submitted </title>
@@ -25,7 +25,7 @@
                             <thead>
                                 <tr>
                                 <th onclick='sortProposalTable(0)'>No.</th>
-                                <th class="col-6" onclick='sortActivityTable(1)'>Proposal Title
+                                <th class="col-5" onclick='sortActivityTable(1)'>Proposal Title
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
                                         <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
                                     </svg>
@@ -35,7 +35,7 @@
                                         <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
                                     </svg>
                                 </th>
-                                <th class="col-5">Actions</th>
+                                <th class="col-6">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -147,5 +147,7 @@ function sortProposalTable(n) {
 
 
 </script>
-
+<link 
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>
 @endsection

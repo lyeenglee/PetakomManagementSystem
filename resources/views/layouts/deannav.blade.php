@@ -430,25 +430,13 @@
                                         Dashboard Boxes
                                     </a>
                                 </li>
-                                <li class="app-sidebar__heading">Forms</li>
+                                <li class="app-sidebar__heading">PROPOSAL</li>
                                 <li>
-                                    <a href="forms-controls.html">
+                                    <a href="{{ url('/dean/proposal/menu') }}">
                                         <i class="metismenu-icon pe-7s-mouse">
-                                        </i>Forms Controls
-                                    </a>
+                                        </i>Dean Proposal
                                 </li>
-                                <li>
-                                    <a href="forms-layouts.html">
-                                        <i class="metismenu-icon pe-7s-eyedropper">
-                                        </i>Forms Layouts
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="forms-validation.html">
-                                        <i class="metismenu-icon pe-7s-pendrive">
-                                        </i>Forms Validation
-                                    </a>
-                                </li>
+
                                 <li class="app-sidebar__heading">ELECTION</li>
                                 <li>
                                     <a href="/dean/election/menu">
