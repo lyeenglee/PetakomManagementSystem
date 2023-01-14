@@ -559,11 +559,11 @@
                                     </a>
                                 </li>
 
-                                <li class="app-sidebar__heading">Widgets</li>
+                                <li class="app-sidebar__heading">Calendar</li>
                                 <li>
                                     <a href="dashboard-boxes.html">
                                         <i class="metismenu-icon pe-7s-display2"></i>
-                                        Dashboard Boxes
+                                        Coordinator Calendar
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading">Forms</li>

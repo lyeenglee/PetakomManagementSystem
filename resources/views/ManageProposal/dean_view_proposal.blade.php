@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.deannav')
 
 @section('content')
 <div class="container">
@@ -117,6 +117,8 @@
       box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
     }
 </style>
-
+<link 
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>
 
 @endsection
