@@ -45,7 +45,7 @@ class bulletinController extends Controller
         $input->bulletinDate = $request->bulletinDate;
 
         $input->save();
-        return redirect('bulletin')->with('success', 'Bulletin Created!');;
+        return redirect('bulletin')->with('success', 'New Bulletin Created Successfully!');;
     }
 
     /**
@@ -88,7 +88,7 @@ class bulletinController extends Controller
         $input = $request->all();
         $bulletin->update($input);
 
-        return redirect('bulletin')->with('success', 'Bulletin Updated!'); 
+        return redirect('bulletin')->with('success', 'Bulletin Edited Successfully!'); 
     }
 
     /**
@@ -101,7 +101,7 @@ class bulletinController extends Controller
     {
         //Delete bulletin by id
         bulletin::destroy($bulletinID);
-        return redirect('bulletin')->with('success', 'Bulletin Deleted!');
+        return redirect('bulletin')->with('success', 'Bulletin Deleted Successfully!');
     }
 
     //Route

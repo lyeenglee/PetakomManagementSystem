@@ -16,10 +16,7 @@
             </div>
             <br>
             <div class="card">
-                <div class="card-header" style="font-size:30px">{{ __('Bulletins List') }}
-                    <div class="text-end">
-                                <a href="{{ url('/bulletin/create') }}" class="btn btn-success" title="Add Bulletin">Add New</a>
-                    </div> 
+                <div class="card-header" style="font-size:30px">{{ __('Bulletins List') }} 
                 </div>
                 <br>
                 <div class="card-body">
