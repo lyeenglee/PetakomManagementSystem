@@ -56,26 +56,7 @@
                         </div>
                         <button class="close"></button>
                     </div>
-                    <ul class="header-menu nav">
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-database"> </i>
-                                Statistics
-                            </a>
-                        </li>
-                        <li class="btn-group nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-edit"></i>
-                                Projects
-                            </a>
-                        </li>
-                        <li class="dropdown nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-cog"></i>
-                                Settings
-                            </a>
-                        </li>
-                    </ul>        </div>
+                            </div>
                 <div class="app-header-right">
                 {{ Auth::user()->name }}
                 <div class="btn-group">
@@ -421,7 +402,7 @@
 
                                 <li>
                                     <a href="{{ url('/dean/activity/menu') }}">
-                                        <i class="metismenu-icon pe-7s-display2"></i>
+                                        
                                         Dean Activity
                                     </a>
                                 </li>
@@ -429,29 +410,26 @@
                                 <li class="app-sidebar__heading">Widgets</li>
                                 <li>
                                     <a href="dashboard-boxes.html">
-                                        <i class="metismenu-icon pe-7s-display2"></i>
+                                        
                                         Dashboard Boxes
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading">PROPOSAL</li>
                                 <li>
                                     <a href="{{ url('/dean/proposal/menu') }}">
-                                        <i class="metismenu-icon pe-7s-mouse">
-                                        </i>Dean Proposal
+                                        Dean Proposal
                                 </li>
 
                                 <li class="app-sidebar__heading">ELECTION</li>
                                 <li>
                                     <a href="/dean/election/menu">
-                                        <i class="metismenu-icon pe-7s-graph2">
-                                        </i>Dean Election
+                                        Dean Election
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading">BULLETIN</li>
                                 <li>
                                     <a href="/dean/bulletin/menu">
-                                        <i class="metismenu-icon pe-7s-graph2">
-                                        </i>
+                                        
                                         Dean Bulletin
                                     </a>
                                 </li>

@@ -56,26 +56,7 @@
                         </div>
                         <button class="close"></button>
                     </div>
-                    <ul class="header-menu nav">
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-database"> </i>
-                                Statistics
-                            </a>
-                        </li>
-                        <li class="btn-group nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-edit"></i>
-                                Projects
-                            </a>
-                        </li>
-                        <li class="dropdown nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-cog"></i>
-                                Settings
-                            </a>
-                        </li>
-                    </ul>        </div>
+                            </div>
                 <div class="app-header-right">
                 {{ Auth::user()->name }}
                 <div class="btn-group">
@@ -410,18 +391,12 @@
                     </div>    <div class="scrollbar-sidebar">
                         <div class="app-sidebar__inner">
                             <ul class="vertical-nav-menu">
-                                <li class="app-sidebar__heading">Dashboards</li>
-                                <li>
-                                    <a href="index.html">
-                                        <i class="metismenu-icon pe-7s-rocket"></i>
-                                        Dashboard Example 1
-                                    </a>
-                                </li>
+                                
                                 <li class="app-sidebar__heading">Activity</li>
 
                                 <li>
                                     <a href="{{ url('/HOD/activity/menu') }}">
-                                        <i class="metismenu-icon pe-7s-display2"></i>
+                                        
                                         HOD Activity
                                     </a>
                                 </li>
@@ -429,41 +404,21 @@
                                 <li class="app-sidebar__heading">Calendar</li>
                                 <li>
                                     <a href="{{ url('/hod/calendar/menu') }}">
-                                        <i class="metismenu-icon pe-7s-display2"></i>
+                                        
                                         HOD Calendar
                                     </a>
                                 </li>
-                                <li class="app-sidebar__heading">Forms</li>
-                                <li>
-                                    <a href="forms-controls.html">
-                                        <i class="metismenu-icon pe-7s-mouse">
-                                        </i>Forms Controls
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="forms-layouts.html">
-                                        <i class="metismenu-icon pe-7s-eyedropper">
-                                        </i>Forms Layouts
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="forms-validation.html">
-                                        <i class="metismenu-icon pe-7s-pendrive">
-                                        </i>Forms Validation
-                                    </a>
-                                </li>
+                                
                                 <li class="app-sidebar__heading">ELECTION</li>
                                 <li>
                                     <a href="/hod/election/menu">
-                                        <i class="metismenu-icon pe-7s-graph2">
-                                        </i>HOD Election 
+                                        HOD Election 
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading">BULLETIN</li>
                                 <li>
                                     <a href="/hod/bulletin/menu">
-                                        <i class="metismenu-icon pe-7s-graph2">
-                                        </i>
+                                        
                                         HOD Bulletin 
                                     </a>
                                 </li>
