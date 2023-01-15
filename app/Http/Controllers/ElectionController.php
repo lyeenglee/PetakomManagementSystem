@@ -213,7 +213,7 @@ class ElectionController extends Controller
         }
     }
 
-    public function committeeEditCandidateDetails()
+    public function committeeEditCandidateDetails(Request $request, $electionID)
     {
         $selectedElectionID= Election::find($electionID);
 
