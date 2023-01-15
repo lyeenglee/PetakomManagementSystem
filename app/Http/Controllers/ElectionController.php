@@ -299,21 +299,26 @@ class ElectionController extends Controller
             //if vote is not null
             if(is_null($item->vote) == 0){
                 //assign election row to $unsortCommitteList[$key] $key=number of collected vote
-                $unsortCommitteList[$item->vote] = $item;
+                $unsortCommitteList[$item->electionID] = $item->vote;
             }
         }
 
-        //Sort Array (Descending Order), According to Key - krsort() (sort Descending with vote)
-        krsort($unsortCommitteList);
+        //Sort Array (Descending Order), According to Value - arsort() (sort Descending with vote)
+        arsort($unsortCommitteList);
 
         $count=0;
         //for each (list as key => value)
-        foreach($unsortCommitteList as $vote => $item) {
+        foreach($unsortCommitteList as $electionID => $vote) {
             //if still got position left in the Majlis
             if($count < $numOfPosition){
-                //assign the highest vote to position
-                $sortedCommitteList[$count]= $item;
-                $count++;
+                //find the ori object
+                foreach($candidateList as $item) {
+                    //assign the highest vote to position
+                    if($item->electionID == $electionID){
+                        $sortedCommitteList[$count]= $item;
+                        $count++;
+                    }
+                }
             }
             //break the loop when all position is filled
             else{
