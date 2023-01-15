@@ -1,4 +1,4 @@
-@extends('layouts.commiteenav')
+@extends('layouts.committeenav')
 
 @section('content')
 <div class="container">
