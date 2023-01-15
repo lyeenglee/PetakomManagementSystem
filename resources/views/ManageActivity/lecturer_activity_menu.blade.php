@@ -5,6 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         
+    <!-- Search Field -->
         <div class="col-md-9"> 
         <h3 style="text-align:center;font-weight: bold;">Activity Management</h3><br>
             <div class="input-group rounded">
@@ -22,6 +23,8 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="activityTable">
+
+                        <!-- Table Header -->
                             <thead>
                                 <tr>
                                 <th onclick='sortActivityTable(0)'>#</th>
@@ -48,6 +51,8 @@
                                 <th >Actions</th>
                                 </tr>
                             </thead>
+
+                            <!-- Data List Field -->
                             <tbody>
                             @foreach($activities as $item)
                                 <tr>
@@ -56,6 +61,8 @@
                                 <td>{{ $item->activityStatus }}</td>
                                 <td>{{ $item->startDate }}</td>
                                 <td>{{ $item->endDate }}</td>
+
+                                <!-- View Button -->
                                 <td >   
                                     <a href="{{ url('/viewActivity/' . $item->activityID. '/lecturerView')}}" title="View Activity"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>                      
                                 </td>
@@ -71,6 +78,8 @@
 </div>
 
 <script>
+ 
+// Search Activity Table Function  
 function activitySearchFunction() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("activityInput");
@@ -90,6 +99,7 @@ function activitySearchFunction() {
   }
 }   
 
+//Sort Activity Table Function
 function sortActivityTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("activityTable");

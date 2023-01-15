@@ -10,12 +10,13 @@
                     <h2>{{$activities->activityName}}</h2>
                     <form>
                         <br>
+                        
+                        <!-- Display Poster Field -->
                         <div class="wrap">
-                            <!-- <input name="posterUrl" type="file" class="form-control custom-file-input" id="customFile" value="{{$activities->posterUrl}}"> -->
-                            <!-- <iframe src="/activityAssets/{{$activities->posterUrl}}" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:200px;width:100%;border:none;overflow:hidden;"></iframe> -->
                             <iframe class="frame" src="/activityAssets/{{$activities->posterUrl}}"></iframe>
                         </div>
 
+                        <!-- Display Description Field -->
                         <div class="row mb-3">
                             <strong for="activityDescription" class="col-md-4 col-form-label">{{_('Details') }}</strong>
                             <div class="col=md-6">
@@ -23,6 +24,7 @@
                             </div>
                         </div>
                         
+                        <!-- Back Button -->
                         <div class="col">
                             <div class="text-end">
                                 <a href="{{ url('/coordinator/activity/menu/') }}" class="col-2 btn btn-secondary pull-right" title="Add New Student">Back</a>

@@ -10,6 +10,7 @@
                     <form action="{{ url('activity') }}" method="POST" onchange="myFunction()" enctype="multipart/form-data">
                         @csrf
 
+                        <!-- Name Field -->
                         <div class="row mb-3">
                             <label for="activityName" class="col-md-4 col-form-label">{{_('Name') }}</label>
                             <div class="col=md-6">
@@ -17,27 +18,37 @@
                             </div>
                         </div>
 
+                        <!-- Start Date, End Date, Start Time, End Time Label -->
                         <div class="row mb-3">
                             <label for="startDate" class="col-md-3 col-form-label ">{{_('Start Date')}} </label>
                             <label for="endDate" class="col-md-3 col-form-label ">{{_('End Date')}} </label>
                             <label for="startTime" class="col-md-3 col-form-label ">{{_('Start Time')}} </label>
                             <label for="endTime" class="col-md-3 col-form-label">{{_('End Time')}} </label>
                         </div>
+
                         <div class="row">
+                            <!-- Start Date Field -->
                             <div class="col">
                                 <input id="startDate" type="date" class="form-control" name="startDate" required/>
                             </div>
+
+                            <!-- End Date Field -->
                             <div class="col">
                                 <input id="endDate" type="date" class="form-control" name="endDate" required/>
                             </div>
+
+                            <!-- Start Time Field -->
                             <div class="col">
                                 <input id="startTime" type="time" class="form-control" name="startTime" required/>
                             </div>
+
+                            <!-- End Time Field -->
                             <div class="col">
                                 <input id="endTime" type="time" class="form-control" name="endTime" required/>
                             </div>
                         </div>
 
+                        <!-- Venue Field -->
                         <div class="row mb-3">
                             <label for="activityVenue" class="col-md-4 col-form-label">{{_('Venue') }}</label>
                             <div class="col=md-6">
@@ -45,6 +56,7 @@
                             </div>
                         </div>
 
+                        <!-- Description Field -->
                         <div class="row mb-3">
                             <label for="activityDescription" class="col-md-4 col-form-label">{{_('Description') }}</label>
                             <div class="col=md-6">
@@ -52,14 +64,19 @@
                             </div>
                         </div>
 
+                        <!-- Amount, Proposal Drop Down Label -->
                         <div class="row mb-3">
                             <label for="grantAmount" class="col-md-3 col-form-label ">{{_('Grant Amount')}} </label>
                             <label for="proposalUrl" class="col-md-8 col-form-label ">{{_('Proposal Url')}} </label>
                         </div>
+                        
                         <div class="row">
+                            <!-- Amount Field -->
                             <div class="col-md-3">
                                 <input id="grantAmount" type="number" class="form-control" name="grantAmount" required/>
                             </div>
+
+                            <!-- Proposal DropDown Field -->
                             <div class="col-md-9">
                                 <select id="proposalUrl" class="form-control" name="proposalUrl" required>
                                     <option selected>-</option>
@@ -71,6 +88,7 @@
                             </div>
                         </div>
 
+                        <!-- Poster Field -->
                         <div class="row mb-3">
                             <label for="posterUrl" class="col-form-label">{{_('Poster Url') }}</label>
                             <div class="col=md-6">
@@ -80,13 +98,15 @@
                             </div>
                         </div>
                         
+                        <!-- Save, Cancel Button -->
                         <div class="col">
                             <div class="text-end">
                                 <button class="col-2 btn btn-success pull-right" type="submit">Save</button>
-                                <a href="{{ url('/activity/') }}" class="col-2 btn btn-secondary pull-right" title="Add New Student">Cancel</a>
+                                <a href="{{ url('/activity/') }}" class="col-2 btn btn-secondary pull-right" title="Cencel">Cancel</a>
                             </div>
                         </div>    
 
+                        <!-- Get Activity Status Field (Do Not Delete)-->
                         <div class="row mb-3">
                             <label hidden id="todayDate">{{ now()->format('Y-m-d') }}</label>
                             <input hidden id="activityStatus" type="text" class="form-control"name="activityStatus"/>
@@ -102,6 +122,8 @@
 </div>
 
 <script>
+
+//Get Activiti Status Function
 function myFunction() {
    var startValue = (document.getElementById("startDate").value) ;
    var endValue = document.getElementById("endDate").value ;

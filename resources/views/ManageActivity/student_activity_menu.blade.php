@@ -7,6 +7,8 @@
         
         <div class="col-md-9"> 
         <h3 style="text-align:center;font-weight: bold;">Activity Management</h3><br>
+
+        <!-- Search Field -->
             <div class="input-group rounded">
                 <input type="search" id="activityInput" class="form-control rounded" onkeyup="activitySearchFunction()" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                 <span class="input-group-text border-0" id="search-addon">
@@ -15,13 +17,17 @@
                     </svg>
                 </span>
             </div>
+
             <br>
+
             <div class="card">
                 <div class="card-header">{{ __('Activities List') }}</div>
                 <br>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="activityTable">
+
+                        <!-- Table Header -->
                             <thead>
                                 <tr>
                                 <th onclick='sortActivityTable(0)'>#</th>
@@ -48,6 +54,8 @@
                                 <th >Actions</th>
                                 </tr>
                             </thead>
+
+                            <!-- Data List Field -->
                             <tbody>
                             @foreach($activities as $item)
                                 <tr>
@@ -56,6 +64,8 @@
                                 <td>{{ $item->activityStatus }}</td>
                                 <td>{{ $item->startDate }}</td>
                                 <td>{{ $item->endDate }}</td>
+
+                                <!-- View Button -->
                                 <td >   
                                     <a href="{{ url('/viewActivity/' . $item->activityID. '/studentView')}}" title="View Activity"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>                      
                                 </td>
@@ -71,6 +81,8 @@
 </div>
 
 <script>
+
+// Search Activity Table Function   
 function activitySearchFunction() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("activityInput");
@@ -90,6 +102,7 @@ function activitySearchFunction() {
   }
 }   
 
+//Sort Activity Table Function
 function sortActivityTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("activityTable");

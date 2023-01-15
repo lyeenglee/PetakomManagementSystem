@@ -7,6 +7,8 @@
         <div class="col-md-10"> 
         @include('flash-message')
         <h3 style="text-align:center;font-weight: bold;">Activity Management</h3><br>
+
+          <!-- Search Field -->
             <div class="input-group rounded">
                 <input type="search" id="activityInput" class="form-control rounded" onkeyup="activitySearchFunction()" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                 <span class="input-group-text border-0" id="search-addon">
@@ -15,6 +17,7 @@
                     </svg>
                 </span>
             </div>
+
             <br>
             <div class="card">
                 <div class="card-header">{{ __('Activities List') }}</div>
@@ -23,6 +26,8 @@
                     <div class="table-responsive">
                         <table class="table table-bordered" id="activityTable">
                             <thead>
+                              
+                              <!-- Table Header -->
                                 <tr>
                                 <th onclick='sortActivityTable(0)'>#</th>
                                 <th class="col-5" onclick='sortActivityTable(1)'>Name
@@ -39,12 +44,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+
+                            <!-- Data List Field -->
                             @foreach($activities as $item)
                                 <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->activityName }}</td>
                                 <td>{{ $item->activityStatus }}</td>
                                 <td >   
+
+                                  <!-- View, Update, Delete Button -->
                                     <a href="{{ url('/activity/' . $item->activityID) }}" title="View Activity"><button class="col-3 btn btn-primary "><i class="fa fa-eye aria-hidden="true"></i> View</button></a>
                                     <a href="{{ url('/activity/' . $item->activityID . '/edit') }}" title="Edit Activity"><button class="col-4 btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button></a>
                                     
@@ -58,6 +67,8 @@
                             @endforeach
                             </tbody>
                         </table>
+
+                        <!-- Add New Button -->
                         <div class="col">
                             <div class="text-center">
                                 <a href="{{ url('/activity/create') }}" class="btn btn-success" title="Add New Student">Add New</a>
@@ -67,19 +78,13 @@
                 </div>
             </div>
             <br>
-            <!-- <div class="text-center">
-              <a href="{{ url('/coordinator/activity/menu/') }}" class="col-2 btn btn-primary" title="Coordinator Menu">Coordinator</a>
-              <a href="{{ url('/dean/activity/menu')  }}" class="col-2 btn btn-secondary" title="Dean Menu">Dean</a>
-              <a href="{{ url('/HOD/activity/menu') }}" class="col-2 btn btn-success" title="HOD Menu">HOD</a>
-              <a href="{{ url('/lecturer/activity/menu') }}" class="col-2 btn btn-danger" title="Lecturer Menu">Lecturer</a>
-              <a href="{{ url('/student/activity/menu')  }}" class="col-2 btn btn-warning" title="Student Menu">Student</a>
-            </div> -->
-            
         </div>
     </div>
 </div>
 
 <script>
+
+// Search Activity Table Function   
 function activitySearchFunction() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("activityInput");
@@ -99,6 +104,7 @@ function activitySearchFunction() {
   }
 }   
 
+//Sort Activity Table Function
 function sortActivityTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("activityTable");
