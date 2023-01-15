@@ -21,10 +21,13 @@
         $time = $item->endTime;
     }
 
+    //set timezome to Malaysia time 
+    date_default_timezone_set("Asia/Kuala_Lumpur");
+
     //get current date
     $date = date('m/d/Y', time());
 
-    //merge cuurent date with election end time 
+    //merge current date with election end time 
     $combinedDT = date('Y-m-d H:i:s', strtotime("$date $time"));
 @endphp
 
@@ -201,6 +204,7 @@
         var distance = countDownDate - now;
             
         // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -212,7 +216,6 @@
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("voteTimeLbl").innerHTML = "EXPIRED";
             window.location.href = "{{ route('vote_expired')}}";
         }
     }, 1000);

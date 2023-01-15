@@ -102,6 +102,7 @@ Route::get('/committee/election/viewCandidate/{id}', [ElectionController::class,
 Route::get('/committee/election/editCandidate/{id}', [ElectionController::class, 'committeeEditCandidate']);
 Route::patch('/committee/election/edit/{id}', [ElectionController::class, 'committeeEditCandidateDetails']);
 Route::delete('/committee/election/delete/{id}', [ElectionController::class, 'committeeRemoveCandidateDetails']);
+Route::patch('/committee/election/endElection/', [ElectionController::class, 'committeeEndElection']);
 
 //Election- Coordinator
 Route::get('/coordinator/election/approveCandidate/{id}', [ElectionController::class, 'coordinatorApproveCandidate']);
@@ -138,7 +139,7 @@ Route::get('/student/bulletin/menu', [bulletinController::class, 'studentMenu'])
 Route::resource("/calendar", CalendarController::class);
 Route::get('/coordinator/calendar/menu', [CalendarController::class, 'coordinatorMenu']);
 Route::get('/committee/calendar/menu', [CalendarController::class, 'committeeMenu']);
-Route::get('/hod/calendar/menu', [CalendarController::class, 'hodCalendar']);
+Route::get('/hod/calendar/menu', [CalendarController::class, 'hodMenu']);
 Route::get('/student/calendar/menu', [CalendarController::class, 'studentMenu']);
 Route::get('/lecturer/calendar/menu', [CalendarController::class, 'lecturerMenu']);
 

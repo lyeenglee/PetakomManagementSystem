@@ -412,7 +412,7 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Dashboards</li>
                                 <li>
-                                    <a href="index.html" class="mm-active">
+                                    <a href="index.html">
                                         <i class="metismenu-icon pe-7s-rocket"></i>
                                         Dashboard Example 1
                                     </a>
@@ -426,13 +426,13 @@
                                     </a>
                                 </li>
 
-                                <li class="app-sidebar__heading">Widgets</li>
+                                <li class="app-sidebar__heading">Calendar</li>
                                 <li>
-                                    <a href="dashboard-boxes.html">
+                                    <a href="{{ url('/hod/calendar/menu') }}">
                                         <i class="metismenu-icon pe-7s-display2"></i>
-                                        Dashboard Boxes
+                                        HOD Calendar
                                     </a>
-                                </li>
+                                </li>
                                 <li class="app-sidebar__heading">Forms</li>
                                 <li>
                                     <a href="forms-controls.html">

@@ -46,7 +46,7 @@
                                 <td>{{ $item->bulletinTitle }}</td>
                                 <td>{{ $item->bulletinDate }}</td>
                                 <td >   
-                                    <a href="{{ url('/bulletin/' . $item->bulletinID) }}" target="_blank" title="View Activity"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                    <a href="{{ url('/bulletin/' . $item->bulletinID) }}" target="_blank" title="View Bulletin"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                     </form>                             
                                 </td>
                             </tr>

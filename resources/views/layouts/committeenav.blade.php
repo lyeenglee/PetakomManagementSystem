@@ -412,7 +412,7 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Dashboards</li>
                                 <li>
-                                    <a href="index.html" class="mm-active">
+                                    <a href="index.html">
                                         <i class="metismenu-icon pe-7s-rocket"></i>
                                         Dashboard Example 1
                                     </a>
@@ -426,32 +426,21 @@
                                     </a>
                                 </li>
 
-                                <li class="app-sidebar__heading">Widgets</li>
+                                <li class="app-sidebar__heading">Calendar</li>
                                 <li>
-                                    <a href="dashboard-boxes.html">
+                                    <a href="{{ url('/committee/calendar/menu') }}">
                                         <i class="metismenu-icon pe-7s-display2"></i>
-                                        Dashboard Boxes
+                                        Committee Calendar
                                     </a>
-                                </li>
-                                <li class="app-sidebar__heading">Forms</li>
+                                </li>
+                                <li class="app-sidebar__heading">Proposal</li>
                                 <li>
-                                    <a href="forms-controls.html">
+                                    <a href="{{ url('/committee/proposal/menu') }}">
                                         <i class="metismenu-icon pe-7s-mouse">
-                                        </i>Forms Controls
+                                        </i>Committee Proposal
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="forms-layouts.html">
-                                        <i class="metismenu-icon pe-7s-eyedropper">
-                                        </i>Forms Layouts
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="forms-validation.html">
-                                        <i class="metismenu-icon pe-7s-pendrive">
-                                        </i>Forms Validation
-                                    </a>
-                                </li>
+            
                                 <li class="app-sidebar__heading">ELECTION</li>
                                 <li>
                                     <a href="/committee/election/menu">

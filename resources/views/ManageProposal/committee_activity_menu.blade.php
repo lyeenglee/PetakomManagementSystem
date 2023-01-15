@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.committeenav')
 
 @section('content')
 <title>Proposals Submitted </title>
@@ -35,7 +35,7 @@
                                         <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
                                     </svg>
                                 </th>
-                                <th class="col-4">Actions</th>
+                                <th class="col-5">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,10 +44,10 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->proposalTitle }}</td>
                                 <td>{{ $item->date }}</td>
-                                <td >   
+                                <td >     
                                     <a href="{{ url('/proposal/' . $item->proposalID) }}" title="View Proposal"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                    <a href="{{ url('/committee/viewStatus') }}" title="View Status"><button class="btn btn-danger pull-right"><i class="fa fa-trash-o" aria-hidden="true"></i> Status</button></a> 
-                                    <a href="{{ url('/committee/download') }}" title="Download Report"><button class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Download</button></a>
+                                    <a href="{{ url('/committee/viewStatus') }}" title="View Status"><button class="btn btn-danger pull-right"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Status</button></a> 
+                                    <a href="{{ url('/committee/download') }}" title="Download Report"><button class="btn btn-success"><i class="fa fa-download" aria-hidden="true"></i> Download</button></a>
                       
                                 </td>
                             </tr>
@@ -63,13 +63,7 @@
                 </div>
             </div>
             <br>
-            <div class="text-center">
 
-              <a href="{{ url('/committee/proposal/menu') }}" class="col-2 btn btn-success" title="Committee Menu">Committee</a>
-              <a href="{{ url('/coordinator/proposal/menu') }}" class="col-2 btn btn-primary" title="Coordinator Menu">Coordinator</a>
-              <a href="{{ url('/dean/proposal/menu')  }}" class="col-2 btn btn-secondary" title="Dean Menu">Dean</a>
-
-            </div>
             
         </div>
     </div>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header" style="text-align:center">{{_('EDIT BULLETIN') }}</div>
                 <div class="card-body">
@@ -36,8 +36,8 @@
                         
                         <div class="col">
                             <div class="text-end"><br>
-                                <button class="col-2 btn btn-success pull-right" type="submit">Edit</button>
                                 <a href="{{ url('/bulletin') }}" class="col-2 btn btn-secondary pull-right" onclick="return confirm('Are you sure to discard changes?')">Cancel</a>
+                                <button class="col-2 btn btn-success pull-right" type="submit">Edit</button>
                             </div>
                         </div>    
                     </form>

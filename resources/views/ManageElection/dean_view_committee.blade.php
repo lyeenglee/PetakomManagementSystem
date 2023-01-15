@@ -21,7 +21,7 @@
                                 <!-- Display candidate position -->
                                 <tr>
                                     <td class="col-5"><label>Position</label></td>
-                                    <td class="col-7"><p style="font-weight: bold;">{{$electionID->category}} </p></td>
+                                    <td class="col-7"><p style="font-weight: bold;">{{$electionID->position}} </p></td>
                                 </tr>
                                 
                                 <!-- Display candidate year -->

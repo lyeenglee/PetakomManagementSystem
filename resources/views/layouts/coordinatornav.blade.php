@@ -412,7 +412,7 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Dashboards</li>
                                 <li>
-                                    <a href="index.html" class="mm-active">
+                                    <a href="index.html">
                                         <i class="metismenu-icon pe-7s-rocket"></i>
                                         Dashboard
                                     </a>
@@ -561,30 +561,18 @@
 
                                 <li class="app-sidebar__heading">Calendar</li>
                                 <li>
-                                    <a href="dashboard-boxes.html">
+                                    <a href="{{ url('/coordinator/calendar/menu') }}">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Coordinator Calendar
                                     </a>
-                                </li>
-                                <li class="app-sidebar__heading">Forms</li>
+                                </li>
+                                <li class="app-sidebar__heading">Proposal</li>
                                 <li>
-                                    <a href="forms-controls.html">
+                                    <a href="{{ url('/coordinator/proposal/menu') }}">
                                         <i class="metismenu-icon pe-7s-mouse">
-                                        </i>Forms Controls
-                                    </a>
+                                        </i>Coordinator Proposal
                                 </li>
-                                <li>
-                                    <a href="forms-layouts.html">
-                                        <i class="metismenu-icon pe-7s-eyedropper">
-                                        </i>Forms Layouts
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="forms-validation.html">
-                                        <i class="metismenu-icon pe-7s-pendrive">
-                                        </i>Forms Validation
-                                    </a>
-                                </li>
+
                                 <li class="app-sidebar__heading">ELECTION</li>
                                 <li>
                                     <a href="/coordinator/election/menu">
