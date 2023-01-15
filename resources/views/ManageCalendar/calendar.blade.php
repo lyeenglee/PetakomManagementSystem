@@ -1,4 +1,5 @@
 @section('content')
+@extends('layouts.app')
 @extends('layouts.coordinatornav')
 @extends('layouts.HODnav')
 @extends('layouts.lecturernav')
