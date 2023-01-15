@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Election;
 use App\Models\User;
+use App\Models\Activity;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -90,6 +91,31 @@ class ElectionController extends Controller
     //All route destination here 
     public function committeeMenu()
     {
+        //get election where there exist election
+        $acitivityEndTimeList = DB::table('activities')
+            ->where('proposalUrl', "Election")
+            ->get();
+
+        //compare the election end time with current time
+        $electionFinished = false;
+
+        //set timezome to Malaysia time 
+        date_default_timezone_set("Asia/Kuala_Lumpur");
+
+        //if there is election acitivity in the DB
+        if(count($acitivityEndTimeList) != 0){
+
+            //get election end time 
+            foreach ($acitivityEndTimeList as $item) {
+                $time = $item->endTime;
+            }
+
+            //if election finished at current time  
+            if(time() > strtotime($time)){
+                $electionFinished = true;
+            }
+        }
+
         //retrieve the null (unapproved/ unreject) candidate
         $unapproveList = DB::table('elections')->where('approveStatus', null)->get();
 
@@ -99,7 +125,8 @@ class ElectionController extends Controller
         $electionList = Election::all();
         return view('ManageElection.election_menu_comittee')
             ->with('unapproveList', $unapproveList)
-            ->with('rejectedList',$rejectedList);
+            ->with('rejectedList',$rejectedList)
+            ->with('electionFinished',$electionFinished);
     }
 
     public function coordinatorMenu()
@@ -186,7 +213,7 @@ class ElectionController extends Controller
         }
     }
 
-    public function committeeEditCandidateDetails(Request $request, $electionID)
+    public function committeeEditCandidateDetails()
     {
         $selectedElectionID= Election::find($electionID);
 
@@ -230,6 +257,123 @@ class ElectionController extends Controller
         $selectedElectionID->delete();
         return redirect('/committee/election/menu')->with('success', 'Candidate Removed!');
     }
+    
+    public function committeeEndElection(){
+
+        //get activityid where there exist election
+        $acitivityID = DB::table('activities')
+            ->where('proposalUrl', "Election")->first()->activityID;
+
+        //delete the row of election in Acvtivity table 
+        $finishedElectionActivityID= Activity::find($acitivityID);
+        $finishedElectionActivityID->delete();
+
+        $this->assignCommittee();
+
+        return redirect('/committee/election/menu')->with('success', 'Committee Updated!');
+    }
+
+    public function assignCommittee(){
+        
+        //retrieve the approved candidate list
+        $candidateList = DB::table('elections')->where('approveStatus', 1)->get();
+        //set the Majlis Tertinggi committee into list
+        $candidateListMT = $candidateList->where('category', "Majlis Tertinggi");
+        //retrieve the Majlis Eksekutif committee into list
+        $candidateListME = $candidateList->where('category', "Majlis Eksekutif");
+
+        //get list of committee by arrange with vote
+        $committeeListMT = $this->getListofCommittee($candidateListMT, 2);
+        $committeeListME = $this->getListofCommittee($candidateListME, 3);
+
+        //delete when the user does not have position
+        $this->deleteCandidate($committeeListMT, $committeeListME);
+    }
+
+    public function getListofCommittee($candidateList, $numOfPosition){
+
+        $unsortCommitteList= array();
+        $sortedCommitteList= array();
+
+        foreach ($candidateList as $item) {
+            //if vote is not null
+            if(is_null($item->vote) == 0){
+                //assign election row to $unsortCommitteList[$key] $key=number of collected vote
+                $unsortCommitteList[$item->vote] = $item;
+            }
+        }
+
+        //Sort Array (Descending Order), According to Key - krsort() (sort Descending with vote)
+        krsort($unsortCommitteList);
+
+        $count=0;
+        //for each (list as key => value)
+        foreach($unsortCommitteList as $vote => $item) {
+            //if still got position left in the Majlis
+            if($count < $numOfPosition){
+                //assign the highest vote to position
+                $sortedCommitteList[$count]= $item;
+                $count++;
+            }
+            //break the loop when all position is filled
+            else{
+                break;
+            }
+        }
+
+        return $sortedCommitteList;
+    }
+
+    public function deleteCandidate($committeeListMT, $committeeListME){
+
+        //merge two committee electionID
+        $allCommitteeList = array_merge($committeeListMT, $committeeListME); 
+
+        //delete all the data in Election table
+        Election::truncate();
+
+        //recreate the Election table with committee data only
+        foreach ($allCommitteeList as $item) {
+            $election = new Election();
+            $election->name = $item->name;
+            $election->year = $item->year;
+            $election->category = $item->category;
+            $election->course = $item->course;
+            $election->manifesto = $item->manifesto;
+            $election->filePath = $item->filePath;
+            $election->approveStatus = $item->approveStatus;
+            $election->rejectReason = $item->rejectReason;
+            $election->vote = $item->vote;
+            $election->save();
+        }
+
+        //assign committee postion
+        $this->assignCommitteePosition($allCommitteeList);
+    }
+
+    public function assignCommitteePosition($allCommitteeList){
+
+        //list of available position
+        $MTarr = array("Presiden", "Setiausaha");
+        $MEarr = array("ketua Multimedia", "Sukan & Rekreasi", "Hebahan & Publisiti");
+        //merge two committee position
+        $allCommitteePosition = array_merge($MTarr, $MEarr); 
+
+        $count=0;
+        foreach($allCommitteeList as $item) {
+
+            //find the committee
+            $item= Election::find($count+1);
+            //update the postition status
+            $item->positionStatus = true;
+            //update the committtee postition
+            $item->position = $allCommitteePosition[$count];
+            //commit update
+            $item->save();
+
+            $count ++;
+        }
+    }
 
     public function coordinatorApproveCandidate($electionID)
     {
@@ -268,7 +412,7 @@ class ElectionController extends Controller
 
     public function studentVoteCandidatePage()
     {
-        //retrieve the candidate elected
+        //retrieve the approved candidate list
         $candidateList = DB::table('elections')->where('approveStatus', 1)->get();
 
         //set the Majlis Tertinggi committee into list

@@ -112,13 +112,21 @@
             </div>
             <br>
             <div class="text-center">
-              <a href="{{ url('/coordinator/election/menu/') }}" class="col-2 btn btn-primary" title="Coordinator Menu">Coordinator</a>
-              <a href="{{ url('/dean/election/menu')  }}" class="col-2 btn btn-secondary" title="Dean Menu">Dean</a>
-              <a href="{{ url('/hod/election/menu') }}" class="col-2 btn btn-success" title="HOD Menu">HOD</a>
-              <a href="{{ url('/lecturer/election/menu') }}" class="col-2 btn btn-danger" title="Lecturer Menu">Lecturer</a>
-              <a href="{{ url('/student/election/menu')  }}" class="col-2 btn btn-warning" title="Student Menu">Student</a>
+                <a href="{{ url('/coordinator/election/menu/') }}" class="col-2 btn btn-primary" title="Coordinator Menu">Coordinator</a>
+                <a href="{{ url('/dean/election/menu')  }}" class="col-2 btn btn-secondary" title="Dean Menu">Dean</a>
+                <a href="{{ url('/hod/election/menu') }}" class="col-2 btn btn-success" title="HOD Menu">HOD</a>
+                <a href="{{ url('/lecturer/election/menu') }}" class="col-2 btn btn-danger" title="Lecturer Menu">Lecturer</a>
+                <a href="{{ url('/student/election/menu')  }}" class="col-2 btn btn-warning" title="Student Menu">Student</a>
+
+                @if($electionFinished)
+                    <form method="POST" action="{{ url('/committee/election/endElection/') }}" accept-charset="UTF-8" style="display:inline">
+                        @csrf
+                        @method("PATCH")
+                    
+                        <button type="submit" class="col-2 btn btn-warning" onclick="return confirm('End Election?')">End Election</button>
+                    </form> 
+                @endif
             </div>
-            
         </div>
     </div>
 </div>
