@@ -56,26 +56,7 @@
                         </div>
                         <button class="close"></button>
                     </div>
-                    <ul class="header-menu nav">
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-database"> </i>
-                                Statistics
-                            </a>
-                        </li>
-                        <li class="btn-group nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-edit"></i>
-                                Projects
-                            </a>
-                        </li>
-                        <li class="dropdown nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-cog"></i>
-                                Settings
-                            </a>
-                        </li>
-                    </ul>        </div>
+              </div>
                 <div class="app-header-right">
                 {{ Auth::user()->name }}
                 <div class="btn-group">
@@ -421,7 +402,7 @@
 
                                 <li>
                                     <a href="{{ url('/activity') }}">
-                                        <i class="metismenu-icon pe-7s-display2"></i>
+                                        
                                         Committee Activity
                                     </a>
                                 </li>
@@ -429,30 +410,27 @@
                                 <li class="app-sidebar__heading">Calendar</li>
                                 <li>
                                     <a href="{{ url('/committee/calendar/menu') }}">
-                                        <i class="metismenu-icon pe-7s-display2"></i>
+                                        
                                         Committee Calendar
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading">Proposal</li>
                                 <li>
                                     <a href="{{ url('/committee/proposal/menu') }}">
-                                        <i class="metismenu-icon pe-7s-mouse">
-                                        </i>Committee Proposal
+                                        Committee Proposal
                                     </a>
                                 </li>
             
                                 <li class="app-sidebar__heading">ELECTION</li>
                                 <li>
                                     <a href="/committee/election/menu">
-                                        <i class="metismenu-icon pe-7s-graph2">
-                                        </i>Committee Election 
+                                        Committee Election 
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading">BULLETIN</li>
                                 <li>
                                     <a href="/bulletin">
-                                        <i class="metismenu-icon pe-7s-graph2">
-                                        </i>
+                                        
                                         Committee Bulletin
                                     </a>
                                 </li>
