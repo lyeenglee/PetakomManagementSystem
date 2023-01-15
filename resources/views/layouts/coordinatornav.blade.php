@@ -551,6 +551,7 @@
                                 <li>
                                     <a href="{{ url('/coordinator/proposal/menu') }}">
                                         Coordinator Proposal
+                                    </a>
                                 </li>
 
                                 <li class="app-sidebar__heading">ELECTION</li>
