@@ -59,7 +59,7 @@ class ActivityController extends Controller
 
         // $input = $request->all();
         // Activity::create($input);
-        return redirect('activity')->with('flash_message', 'Activity Addedd!');
+        return redirect('activity')->with('success', 'Activity Addedd!');
     }
 
     /**
@@ -99,7 +99,7 @@ class ActivityController extends Controller
         $input = $request->all();
         $activity->update($input);
 
-        return redirect('activity')->with('flash_message', 'activity Updated!'); 
+        return redirect('activity')->with('success', 'Activity Updated!'); 
     }
 
     /**
@@ -111,7 +111,7 @@ class ActivityController extends Controller
     public function destroy($activityID)
     {
         Activity::destroy($activityID);
-        return redirect('activity')->with('flash_message', 'Activity deleted!');  
+        return redirect('activity')->with('success', 'Activity Deleted!');  
     }
 
     public function coordinatorMenu()

@@ -1,11 +1,11 @@
 @extends('layouts.committeenav')
-
+@include('flash-message')
 @section('content')
 <title>Activity Management</title>
 <div class="container">
     <div class="row justify-content-center">
-        
         <div class="col-md-10"> 
+        @include('flash-message')
         <h3 style="text-align:center;font-weight: bold;">Activity Management</h3><br>
             <div class="input-group rounded">
                 <input type="search" id="activityInput" class="form-control rounded" onkeyup="activitySearchFunction()" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
@@ -157,4 +157,7 @@ function sortActivityTable(n) {
 <link 
   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
   rel="stylesheet"  type='text/css'>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
