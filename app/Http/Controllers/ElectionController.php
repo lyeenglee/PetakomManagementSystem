@@ -355,7 +355,7 @@ class ElectionController extends Controller
 
         //list of available position
         $MTarr = array("Presiden", "Setiausaha");
-        $MEarr = array("ketua Multimedia", "Sukan & Rekreasi", "Hebahan & Publisiti");
+        $MEarr = array("Ketua Multimedia", "Sukan & Rekreasi", "Hebahan & Publisiti");
         //merge two committee position
         $allCommitteePosition = array_merge($MTarr, $MEarr); 
 
@@ -406,7 +406,10 @@ class ElectionController extends Controller
     public function studentViewCandidateMenu()
     {
         //retrieve approved candidate
-        $approvedList = DB::table('elections')->where('approveStatus', 1)->get();
+        $approvedList = DB::table('elections')
+            ->where('approveStatus', 1)
+            ->whereNull('positionStatus')
+            ->get();
         return view('ManageElection.student_view_candidate_menu')->with('candidateList', $approvedList);
     }
 
