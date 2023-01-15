@@ -391,13 +391,7 @@
                     </div>    <div class="scrollbar-sidebar">
                         <div class="app-sidebar__inner">
                             <ul class="vertical-nav-menu">
-                                <li class="app-sidebar__heading">Dashboards</li>
-                                <li>
-                                    <a href="index.html">
-                                        
-                                        Dashboard Example 1
-                                    </a>
-                                </li>
+
                                 <li class="app-sidebar__heading">Activity</li>
 
                                 <li>
@@ -414,22 +408,7 @@
                                         Lecturer Calendar
                                     </a>
                                 </li>
-                                <li class="app-sidebar__heading">Forms</li>
-                                <li>
-                                    <a href="forms-controls.html">
-                                        Forms Controls
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="forms-layouts.html">
-                                        Forms Layouts
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="forms-validation.html">
-                                        Forms Validation
-                                    </a>
-                                </li>
+                    
                                 <li class="app-sidebar__heading">ELECTION</li>
                                 <li>
                                     <a href="/lecturer/election/menu">
