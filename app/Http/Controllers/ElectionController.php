@@ -508,6 +508,12 @@ class ElectionController extends Controller
             $currentElectionID->save();
         }
 
+        //change the user vote status to true (indicate user had voted)
+        $authID = auth()->user()->id;
+        $userID= User::find($authID);
+        $userID->vote_status = true;
+        $userID->save();
+
         return redirect('/student/election/menu')->with('success', "Vote Done");
     }
 }
