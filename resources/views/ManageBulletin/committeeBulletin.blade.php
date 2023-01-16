@@ -3,7 +3,7 @@
 <title>BULLETIN</title>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
         @include('flash-message')
         <h3 style="text-align:center;font-weight: bold;">BULLETIN (COMMITTEE)</h3><br>
             <div class="input-group rounded">
@@ -22,7 +22,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered" id="bulletinTable">
                             <thead>
-                                <tr>
+                                <tr class="text-center">
                                 <th onclick='sortActivityTable(0)'>#</th>
                                 <th class="col-6" onclick='sortActivityTable(1)'>Bulletin
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
@@ -39,8 +39,8 @@
                             </thead>
                             <tbody>
                             @foreach($bulletins as $item)
-                                <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <tr class="text-center">
+                                <td >{{ $loop->iteration }}</td>
                                 <td>{{ $item->bulletinTitle }}</td>
                                 <td>{{ $item->bulletinDate }}</td>
                                 <td >   

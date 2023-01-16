@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.deannav')
 @include('flash-message')
 @section('content')
-@extends('layouts.deannav')
+
 <title>BULLETIN</title>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
         <h3 style="text-align:center;font-weight: bold;">BULLETIN (DEAN)</h3><br>
             <div class="input-group rounded">
                 <input type="search" id="bulletinInput" class="form-control rounded" onkeyup="activitySearchFunction()" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
@@ -24,7 +24,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered" id="bulletinTable">
                             <thead>
-                                <tr>
+                                <tr class="text-center">
                                 <th onclick='sortActivityTable(0)'>#</th>
                                 <th class="col-6" onclick='sortActivityTable(1)'>Bulletin
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
@@ -41,11 +41,11 @@
                             </thead>
                             <tbody>
                             @foreach($bulletins as $item)
-                                <tr>
+                                <tr class="text-center">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->bulletinTitle }}</td>
                                 <td>{{ $item->bulletinDate }}</td>
-                                <td >   
+                                <td>   
                                     <a href="{{ url('/bulletin/' . $item->bulletinID) }}" target="_blank" title="View Bulletin"><button class="btn btn-primary "><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                     </form>                             
                                 </td>
