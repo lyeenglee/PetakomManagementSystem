@@ -60,7 +60,7 @@
                                     <form method="POST" action="{{ url('/activity' . '/' . $item->activityID) }}" accept-charset="UTF-8" style="display:inline">
                                     {{ csrf_field() }}    
                                     {{ method_field('DELETE') }}
-                                        <button type="submit" class="col-4 btn btn-danger pull-right" title="Delete" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                        <button type="submit" class="col-4 btn btn-danger " title="Delete" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                     </form>                             
                                 </td>
                             </tr>
